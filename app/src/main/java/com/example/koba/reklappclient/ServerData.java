@@ -35,11 +35,11 @@ public class ServerData {
         return 0;
     }
 
-    public static String addUser(String name, String surname, String pin, String country, String city, String streetAddress, String mobileNumber,
+    public static String addUser(String name, String surname, String pin, String country, String city, String password, String streetAddress, String mobileNumber,
                                String sex, String birthDate, String relationship, String numberOfChildren, String income, String email, String oldNumber, String money) {
         Client client = ClientBuilder.newClient();
         Entity body = Entity.json("{ \"name\": \"" + name + "\", \"surname\": \"" + surname + "\", \"pin\": \"" + pin + "\", \"country\": \"" + country + "\", " +
-                "\"city\": \"" + city + "\", \"street_address\": \"" + streetAddress + "\", \"mobile_number\": \"" + mobileNumber + "\", \"sex\": \"" + sex + "\"," +
+                "\"city\": \"" + city + "\", \"password\": \"" + password + "\", \"street_address\": \"" + streetAddress + "\", \"mobile_number\": \"" + mobileNumber + "\", \"sex\": \"" + sex + "\"," +
                 "\"birthdate\": \"" + birthDate + "\", \"relationship\": \"" + relationship + "\", \"number_of_children\": " + numberOfChildren + ", \"average_monthly_income\": " +
                  income + ", \"email\": \"" + email + "\", \"old_mobile_number\": \"" + oldNumber + "\", \"money\": " + money + "}");
         Response response = client.target(URI + "users")
