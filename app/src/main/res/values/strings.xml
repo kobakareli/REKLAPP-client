@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ReklappClient</string>
+    <string name="action_settings">Settings</string>
+    <string name="signup_text">რეგისტრაცია</string>
+    <string name="number_hint">მობილურის ნომერი</string>
+    <string name="password_hint">პაროლი</string>
+    <string name="login_button_text">ავტორიზაცია</string>
+    <string name="name_hint">სახელი</string>
+    <string name="surnname_hint">გვარი</string>
+    <string name="email_hint">ელ. ფოსტა</string>
+    <string name="country_text">საქართველო</string>
+    <string name="address_hint">მისამართი</string>
+    <string name="birth_date_hint">დაბადების თარიღი</string>
+    <string name="number_of_children_hint">შვილების რაოდენობა</string>
+    <string name="average_monthly_income_hint">თვიური საშუალო შემოსავალი</string>
+    <string name="registration_button_text">რეგისტრაცია</string>
+    <string name="sign_in_text">ავტორიზაცია</string>
+</resources>

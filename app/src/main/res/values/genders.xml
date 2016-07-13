@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="genders_array">
+        <item>სქესი</item>
+        <item>მდედრობითი</item>
+        <item>მამრობითი</item>
+    </string-array>
+
+</resources>

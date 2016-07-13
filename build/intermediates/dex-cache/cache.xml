@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Koba\.gradle\caches\modules-2\files-2.1\javax.ws.rs\javax.ws.rs-api\2.0.1\104e9c2b5583cfcfeac0402316221648d6d8ea6b\javax.ws.rs-api-2.0.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="104e9c2b5583cfcfeac0402316221648d6d8ea6b">
+        <dex dex="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\pre-dexed\debug\javax.ws.rs-api-2.0.1-718ce9034851b71bb70a450f1e1cbb6f5f53bf76.jar" />
+    </item>
+
+</items>

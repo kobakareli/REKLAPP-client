@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="relationships_array">
+        <item>ოჯახური მდგომარეობა</item>
+        <item>დასაოჯახებელი</item>
+        <item>დაოჯახებული</item>
+        <item>განქორწინებული</item>
+        <item>სხვა</item>
+    </string-array>
+
+</resources>
