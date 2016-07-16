@@ -2,11 +2,18 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Koba\.gradle\caches\modules-2\files-2.1\javax.ws.rs\javax.ws.rs-api\2.0.1\104e9c2b5583cfcfeac0402316221648d6d8ea6b\javax.ws.rs-api-2.0.1.jar"
+        jar="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\libs\YouTubeAndroidPlayerApi.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="104e9c2b5583cfcfeac0402316221648d6d8ea6b">
-        <dex dex="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\pre-dexed\debug\javax.ws.rs-api-2.0.1-718ce9034851b71bb70a450f1e1cbb6f5f53bf76.jar" />
+        sha1="3c4f96ff493456651cc7bdb0b47e10eb25545a16">
+        <dex dex="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\pre-dexed\debug\YouTubeAndroidPlayerApi-610d286169f914f018a5c4a21e55ee520f9b8d8f.jar" />
+    </item>
+    <item
+        jar="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d9ecde39b460470e655de6e47c05573d2d5a8bfb">
+        <dex dex="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\pre-dexed\debug\classes-3da7cb2d15b158deeae2b7456ce54f4c20c98250.jar" />
     </item>
 
 </items>

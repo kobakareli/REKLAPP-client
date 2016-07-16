@@ -15,4 +15,5 @@
     <string name="average_monthly_income_hint">თვიური საშუალო შემოსავალი ლარში</string>
     <string name="registration_button_text">რეგისტრაცია</string>
     <string name="sign_in_text">ავტორიზაცია</string>
+    <string name="player_error">მოხდა შეცდომა რეკლამის ჩართვისას</string>
 </resources>
