@@ -8,11 +8,12 @@ public class User {
     public String name, surname, pin, country, city, streetAddress, mobileNumber, sex, birthdate;
     public String relationship, email, oldMobileNumber, password;
     public int numberOfChildren;
-    public double averageMonthlyIncome, money;
+    public int averageMonthlyIncome;
+    public double money;
 
     public User(String name, String surname, String password, String pin, String country, String city, String streetAddress,
                 String mobileNumber, String sex, String birthdate, String relationship, String email,
-                String oldMobileNumber, int numberOfChildren, double averageMonthlyIncome, double money) {
+                String oldMobileNumber, int numberOfChildren, int averageMonthlyIncome, double money) {
         this.name = name;
         this.surname = surname;
         this.password = password;

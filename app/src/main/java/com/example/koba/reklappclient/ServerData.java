@@ -99,4 +99,29 @@ public class ServerData {
         return null;
     }
 
+    public static User getUserByLogin(String mobileNumber, String password) {
+        Client client = ClientBuilder.newClient();
+        Response response = client.target(URI + "users/" + mobileNumber + "/" + password)
+                .request(MediaType.APPLICATION_JSON_TYPE)
+                .get();
+        if (response.getStatus() != 200) {
+            return null;
+        }
+        try {
+            JSONObject json = response.readEntity(JSONObject.class);
+            if (json.getString("mobile_number").equals(""))
+                return null;
+            return new User(json.getString("name"), json.getString("surname"), json.getString("password"),
+                    json.getString("pin"), json.getString("country"), json.getString("city"), json.getString("street_address"),
+                    json.getString("mobile_number"), json.getString("sex"), json.getString("birthdate"), json.getString("relationship"),
+                    json.getString("email"), json.getString("old_mobile_number"), json.getInt("number_of_children"),
+                    json.getInt("average_monthly_income"), json.getDouble("money"));
+        }
+
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

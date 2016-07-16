@@ -12,7 +12,7 @@
     <string name="address_hint">მისამართი</string>
     <string name="birth_date_hint">დაბადების თარიღი</string>
     <string name="number_of_children_hint">შვილების რაოდენობა</string>
-    <string name="average_monthly_income_hint">თვიური საშუალო შემოსავალი</string>
+    <string name="average_monthly_income_hint">თვიური საშუალო შემოსავალი ლარში</string>
     <string name="registration_button_text">რეგისტრაცია</string>
     <string name="sign_in_text">ავტორიზაცია</string>
 </resources>
