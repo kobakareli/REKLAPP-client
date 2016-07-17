@@ -16,4 +16,6 @@
     <string name="registration_button_text">რეგისტრაცია</string>
     <string name="sign_in_text">ავტორიზაცია</string>
     <string name="player_error">მოხდა შეცდომა რეკლამის ჩართვისას</string>
+    <string name="openDrawer">open</string>
+    <string name="closeDrawer">close</string>
 </resources>

@@ -7,18 +7,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.Toast;
-
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,96 +25,81 @@ import java.util.List;
 /**
  * Created by Koba on 16/07/2016.
  */
-public class AppActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
+public class AppActivity extends AppCompatActivity {
 
-    public static final String YOUTUBE_API_KEY = "AIzaSyBqzMy33km9EzeA1BE1PXRe6n7OckncUxE";
-    private static final int RECOVERY_REQUEST = 1;
-    private FloatingActionButton fab;
-    private String videoId;
-    private YouTubePlayerView youTubeView;
+    String TITLES[] = {"მთავარი","ინფო","მომხმარებლის გვერდი"};
+    RecyclerView mRecyclerView;                           // Declaring RecyclerView
+    RecyclerView.Adapter mAdapter;                        // Declaring Adapter For Recycler View
+    RecyclerView.LayoutManager mLayoutManager;            // Declaring Layout Manager as a linear layout manager
+    DrawerLayout drawer;                                  // Declaring DrawerLayout
+
+    ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playback);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        videoId = "j5-yKhDd64s"; //TODO fetch new url from server
-        updateVideo();
-    }
+        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView); // Assigning the RecyclerView Object to the xml View
 
-    private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
+        mRecyclerView.setHasFixedSize(true);                            // Letting the system know that the list objects are of fixed size
 
-        @Override
-        public void onAdStarted() {
-        }
+        mAdapter = new MyAdapter(TITLES,"My Name is...","My Number",R.drawable.logo);       // Creating the Adapter of MyAdapter class(which we are going to see in a bit)
+        // And passing the titles,icons,header view name, header view email,
+        // and header view profile picture
 
-        @Override
-        public void onError(YouTubePlayer.ErrorReason arg0) {
-        }
+        mRecyclerView.setAdapter(mAdapter);
 
-        @Override
-        public void onLoaded(String arg0) {
-        }
-
-        @Override
-        public void onLoading() {
-        }
-
-        @Override
-        public void onVideoEnded() {
-            fab.setVisibility(View.VISIBLE);
-            fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
-        }
-
-        @Override
-        public void onVideoStarted() {
-        }
-    };
-
-    @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
-        player.setPlayerStateChangeListener(playerStateChangeListener);
-        if (!wasRestored) {
-            player.cueVideo(videoId);
-        }
-    }
-
-    @Override
-    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult errorReason) {
-        if (errorReason.isUserRecoverableError()) {
-            errorReason.getErrorDialog(this, RECOVERY_REQUEST).show();
-        } else {
-            String error = String.format(getString(R.string.player_error), errorReason.toString());
-            Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-        }
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == RECOVERY_REQUEST) {
-            // Retry initialization if user performed a recovery action
-            getYouTubePlayerProvider().initialize(YOUTUBE_API_KEY, this);
-        }
-    }
-
-    protected YouTubePlayer.Provider getYouTubePlayerProvider() {
-        return youTubeView;
-    }
-
-    private void updateVideo() {
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setVisibility(View.GONE);
-        fab.animate().translationX(100).alpha(0.0f);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(AppActivity.this, AppActivity.class);
-                startActivity(intent);
-                finish();
+        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override public void onItemClick(View view, int position) {
+                FragmentManager manager = getSupportFragmentManager();
+                if (position == 1) {
+                    YoutubeFragment fragment = new YoutubeFragment();
+                    manager.beginTransaction()
+                            .replace(R.id.flContent, fragment)
+                            .addToBackStack(null)
+                            .commit();
+                }
+                drawer.closeDrawer(Gravity.LEFT);
             }
-        });
-        youTubeView = (YouTubePlayerView) findViewById(R.id.ad_player);
-        youTubeView.initialize(YOUTUBE_API_KEY, this);
+        }));
+
+        mLayoutManager = new LinearLayoutManager(this);                 // Creating a layout Manager
+
+        mRecyclerView.setLayoutManager(mLayoutManager);                 // Setting the layout Manager
+
+
+        drawer = (DrawerLayout) findViewById(R.id.DrawerLayout);        // Drawer object Assigned to the view
+        mDrawerToggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.openDrawer,R.string.closeDrawer){
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                // code here will execute once the drawer is opened( As I dont want anything happened whe drawer is
+                // open I am not going to put anything here)
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                // Code here will execute once drawer is closed
+            }
+
+
+
+        }; // Drawer Toggle Object Made
+        drawer.setDrawerListener(mDrawerToggle); // Drawer Listener set to the Drawer toggle
+        mDrawerToggle.syncState();
+
+
+        YoutubeFragment fragment = new YoutubeFragment();
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction()
+                .replace(R.id.flContent, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     @Override

@@ -17,9 +17,11 @@
 
         <!-- logo goes 'ere as well-->
         <ImageView
-            android:layout_width="wrap_content"
+            android:src="@drawable/logo"
+            android:layout_marginTop="@dimen/logo_margin"
+            android:layout_width="@dimen/logo_width"
             android:layout_height="@dimen/logo_height"
-            android:layout_marginBottom="@dimen/logo_width"
+            android:layout_marginBottom="@dimen/logo_margin"
             android:layout_gravity="center_horizontal" />
 
         <android.support.design.widget.TextInputLayout
