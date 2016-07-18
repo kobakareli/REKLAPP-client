@@ -1,6 +1,7 @@
 package com.example.koba.reklappclient;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -27,13 +28,15 @@ import java.util.List;
  */
 public class AppActivity extends AppCompatActivity {
 
-    String TITLES[] = {"მთავარი","ინფო","მომხმარებლის გვერდი"};
-    RecyclerView mRecyclerView;                           // Declaring RecyclerView
-    RecyclerView.Adapter mAdapter;                        // Declaring Adapter For Recycler View
-    RecyclerView.LayoutManager mLayoutManager;            // Declaring Layout Manager as a linear layout manager
-    DrawerLayout drawer;                                  // Declaring DrawerLayout
+    public static int currentFragmentId = 1;
+    private String TITLES[] = {"მთავარი","ინფო","მომხმარებლის გვერდი"};
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private DrawerLayout drawer;
 
-    ActionBarDrawerToggle mDrawerToggle;
+    private ActionBarDrawerToggle mDrawerToggle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,49 +45,42 @@ public class AppActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView); // Assigning the RecyclerView Object to the xml View
+        mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
+        mRecyclerView.setHasFixedSize(true);
 
-        mRecyclerView.setHasFixedSize(true);                            // Letting the system know that the list objects are of fixed size
-
-        mAdapter = new MyAdapter(TITLES,"My Name is...","My Number",R.drawable.logo);       // Creating the Adapter of MyAdapter class(which we are going to see in a bit)
-        // And passing the titles,icons,header view name, header view email,
-        // and header view profile picture
-
+        mAdapter = new MyAdapter(TITLES,"My Name is...","My Number",R.drawable.logo);
         mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override public void onItemClick(View view, int position) {
+                currentFragmentId = position;
                 FragmentManager manager = getSupportFragmentManager();
-                if (position == 1) {
-                    YoutubeFragment fragment = new YoutubeFragment();
-                    manager.beginTransaction()
-                            .replace(R.id.flContent, fragment)
-                            .addToBackStack(null)
-                            .commit();
-                }
+                Fragment fragment = getFragmentById(position);
+
+                manager.beginTransaction()
+                        .replace(R.id.flContent, fragment)
+                        .addToBackStack(null)
+                        .commit();
                 drawer.closeDrawer(Gravity.LEFT);
             }
         }));
 
-        mLayoutManager = new LinearLayoutManager(this);                 // Creating a layout Manager
+        mLayoutManager = new LinearLayoutManager(this);
 
-        mRecyclerView.setLayoutManager(mLayoutManager);                 // Setting the layout Manager
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
 
-        drawer = (DrawerLayout) findViewById(R.id.DrawerLayout);        // Drawer object Assigned to the view
+        drawer = (DrawerLayout) findViewById(R.id.DrawerLayout);
         mDrawerToggle = new ActionBarDrawerToggle(this,drawer,toolbar,R.string.openDrawer,R.string.closeDrawer){
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                // code here will execute once the drawer is opened( As I dont want anything happened whe drawer is
-                // open I am not going to put anything here)
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                // Code here will execute once drawer is closed
             }
 
 
@@ -94,10 +90,10 @@ public class AppActivity extends AppCompatActivity {
         mDrawerToggle.syncState();
 
 
-        YoutubeFragment fragment = new YoutubeFragment();
+        Fragment current = getFragmentById(currentFragmentId);
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
-                .replace(R.id.flContent, fragment)
+                .replace(R.id.flContent, current)
                 .addToBackStack(null)
                 .commit();
     }
@@ -122,6 +118,35 @@ public class AppActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public Fragment getFragmentById(int id) {
+        if (id == 1) {
+            return new YoutubeFragment();
+        }
+        else if(id == 2) {
+            return new InfoFragment();
+        }
+        else if(id == 3) {
+            return new UserFragment();
+        }
+        else if(id == 4) {
+            return new UserEditFragment();
+        }
+        return null;
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        int count = getSupportFragmentManager().getBackStackEntryCount();
+
+        if (count == 1) {
+            finish();
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+
     }
 
 }

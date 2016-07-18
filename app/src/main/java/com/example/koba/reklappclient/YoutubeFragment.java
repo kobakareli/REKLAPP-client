@@ -1,6 +1,7 @@
 package com.example.koba.reklappclient;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -37,6 +38,8 @@ public class YoutubeFragment extends Fragment {
 
     private void updateVideo() {
         fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        Drawable nextIcon = getResources().getDrawable(R.mipmap.ic_next);
+        fab.setImageDrawable(nextIcon);
         fab.setVisibility(View.GONE);
         fab.animate().translationX(100).alpha(0.0f);
         fab.setOnClickListener(new View.OnClickListener() {
