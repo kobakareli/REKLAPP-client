@@ -13,9 +13,17 @@
     <string name="birth_date_hint">დაბადების თარიღი</string>
     <string name="number_of_children_hint">შვილების რაოდენობა</string>
     <string name="average_monthly_income_hint">თვიური საშუალო შემოსავალი ლარში</string>
+    <string name="id_hint">პირადი ნომერი</string>
     <string name="registration_button_text">რეგისტრაცია</string>
     <string name="sign_in_text">ავტორიზაცია</string>
     <string name="player_error">მოხდა შეცდომა რეკლამის ჩართვისას</string>
     <string name="openDrawer">open</string>
     <string name="closeDrawer">close</string>
+    <string name="empty_field_error">ველი უნდა იყოს შევსებული</string>
+    <string name="number_error">შეიყვანეთ მხოლოდ ციფრები</string>
+    <string name="length_error">ველის სიგრძე უნდა იყოს </string>
+    <string name="format_error">ფორმატი არასწორია</string>
+    <string name="city_error">აირჩიეთ ქალაქი</string>
+    <string name="relationship_error">აირჩიეთ ოჯახური მდგომარეობა</string>
+    <string name="gender_error">აირჩიეთ სქესი</string>
 </resources>

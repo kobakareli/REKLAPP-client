@@ -6,15 +6,22 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by Koba on 17/07/2016.
@@ -24,13 +31,32 @@ public class YoutubeFragment extends Fragment {
     public static final String YOUTUBE_API_KEY = "AIzaSyBqzMy33km9EzeA1BE1PXRe6n7OckncUxE";
     private String videoId;
     private FloatingActionButton fab;
+    private Advertisement currentAd;
+    private String userNumber;
+    private RetroFitServer api;
+    private TextView company;
+    private TextView product;
+    private TextView description;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.playback_layout, container, false);
 
-        videoId = "j5-yKhDd64s";
-        updateVideo();
+        Bundle args = getArguments();
+        User user = args.getParcelable("user");
+        userNumber = user.mobile_number;
+
+        company = (TextView) rootView.findViewById(R.id.company);
+        product = (TextView) rootView.findViewById(R.id.product_name);
+        description = (TextView) rootView.findViewById(R.id.product_description);
+
+        RestAdapter adapter = new RestAdapter.Builder()
+                .setEndpoint(RetroFitServer.URI)
+                .build();
+        api = adapter.create(RetroFitServer.class);
+
+        videoId = "j5-yKhDd64s"; // currentAd.getURL();
+        getNextAd();
 
 
         return rootView;
@@ -45,7 +71,7 @@ public class YoutubeFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                updateVideo();
+                getNextAd();
             }
         });
         YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
@@ -61,7 +87,6 @@ public class YoutubeFragment extends Fragment {
                 if (!wasRestored) {
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
                     player.loadVideo(videoId);
-                    player.play();
                 }
             }
 
@@ -72,6 +97,12 @@ public class YoutubeFragment extends Fragment {
                 Log.d("errorMessage:", errorMessage);
             }
         });
+    }
+
+    private void updateTexts() {
+        company.setText(Html.fromHtml("<b>კომპანიის დასახელება: </b>\n" + currentAd.getCompany()));
+        product.setText(Html.fromHtml("<b>პროდუქტის დასახელება: </b>\n" + currentAd.getProduct()));
+        description.setText(Html.fromHtml("<b>პროდუქტის აღწერა: </b>\n" + currentAd.getDescription()));
     }
 
     private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
@@ -102,4 +133,24 @@ public class YoutubeFragment extends Fragment {
         public void onVideoStarted() {
         }
     };
+
+    private void getNextAd() {
+        api.getRandomAdvertisement(userNumber, new Callback<Advertisement>() {
+            @Override
+            public void success(Advertisement advertisement, Response response) {
+                if(advertisement != null && advertisement.getURL() != null && advertisement.getURL().length() != 0) {
+                    currentAd = advertisement;
+                    updateVideo();
+                    updateTexts();
+                    return;
+                }
+                Toast.makeText(getActivity(), "რეკლამა ვერ მოიძებნა", Toast.LENGTH_SHORT);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                error.printStackTrace();
+            }
+        });
+    }
 }

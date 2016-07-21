@@ -2,11 +2,25 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.2.1\jars\classes.jar"
+        jar="C:\Users\Koba\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.1\19047bdb6a4fc00a44124f64ca98e88fc204e7e3\okhttp-3.3.1.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2">
-        <dex dex="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\pre-dexed\debug\classes-7ae44f0a368ddff69ea515f47538e407892e5f87.jar" />
+        sha1="19047bdb6a4fc00a44124f64ca98e88fc204e7e3">
+        <dex dex="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\pre-dexed\debug\okhttp-3.3.1-361e459561de01960bc73be71863975ad56885cc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Koba\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.3.1\99ce730034c6f5aaed710d1e0e9df95e8714ed5f\logging-interceptor-3.3.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="99ce730034c6f5aaed710d1e0e9df95e8714ed5f">
+        <dex dex="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\pre-dexed\debug\logging-interceptor-3.3.1-8a962aabb9d74171940b8ac1b0225531144b70c5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Koba\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="C:\Users\Koba\Desktop\freeuni\VI\Android\Homework\Contacts App\FreeuniLectureIntents\ReklappClient\app\build\intermediates\pre-dexed\debug\okio-1.8.0-2d2c4bc7b7901a1f5ed91d538314759295c71834.jar" />
     </item>
 
 </items>

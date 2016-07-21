@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin"
                 android:layout_marginBottom="@dimen/margin">
-                <TextView android:id="@+id/input_email"
+                <TextView android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="test"
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin"
                 android:layout_marginBottom="@dimen/margin">
-                <TextView android:id="@+id/input_password"
+                <TextView android:id="@+id/pid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="test"

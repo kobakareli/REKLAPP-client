@@ -8,11 +8,24 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Created by Koba on 18/07/2016.
  */
 public class UserFragment extends Fragment {
+
+    private TextView name;
+    private TextView surname;
+    private TextView email;
+    private TextView id;
+    private TextView city;
+    private TextView address;
+    private TextView sex;
+    private TextView birthdate;
+    private TextView relationship;
+    private TextView numberOfChildren;
+    private TextView averageIncome;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +47,36 @@ public class UserFragment extends Fragment {
                         .commit();
             }
         });
+
+        Bundle args = getArguments();
+        User user = args.getParcelable("user");
+        initTextViews(rootView, user);
+
         return rootView;
+    }
+
+    private void initTextViews(View rootView, User user) {
+        name = (TextView) rootView.findViewById(R.id.name);
+        name.setText(user.name);
+        surname = (TextView) rootView.findViewById(R.id.surname);
+        surname.setText(user.surname);
+        email = (TextView) rootView.findViewById(R.id.email);
+        email.setText(user.email);
+        id = (TextView) rootView.findViewById(R.id.pid);
+        id.setText(user.pin);
+        city = (TextView) rootView.findViewById(R.id.city);
+        city.setText(user.city);
+        address = (TextView) rootView.findViewById(R.id.address);
+        address.setText(user.street_address);
+        sex = (TextView) rootView.findViewById(R.id.sex);
+        sex.setText(user.sex);
+        birthdate = (TextView) rootView.findViewById(R.id.birthdate);
+        birthdate.setText(user.birthdate);
+        relationship = (TextView) rootView.findViewById(R.id.relationship);
+        relationship.setText(user.relationship);
+        numberOfChildren = (TextView) rootView.findViewById(R.id.numChildren);
+        numberOfChildren.setText(user.number_of_children);
+        averageIncome = (TextView) rootView.findViewById(R.id.income);
+        averageIncome.setText(user.average_monthly_income);
     }
 }

@@ -37,6 +37,8 @@ public class AppActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle mDrawerToggle;
 
+    private User user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,10 @@ public class AppActivity extends AppCompatActivity {
         setContentView(R.layout.activity_playback);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if (getIntent().hasExtra("user")) {
+            user = getIntent().getParcelableExtra("user");
+        }
 
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
@@ -121,19 +127,23 @@ public class AppActivity extends AppCompatActivity {
     }
 
     public Fragment getFragmentById(int id) {
+        Fragment f = null;
         if (id == 1) {
-            return new YoutubeFragment();
+            f = new YoutubeFragment();
         }
         else if(id == 2) {
-            return new InfoFragment();
+            f = new InfoFragment();
         }
         else if(id == 3) {
-            return new UserFragment();
+            f = new UserFragment();
         }
         else if(id == 4) {
-            return new UserEditFragment();
+            f = new UserEditFragment();
         }
-        return null;
+        Bundle args = new Bundle();
+        args.putParcelable("user", user);
+        f.setArguments(args);
+        return f;
     }
 
     @Override
