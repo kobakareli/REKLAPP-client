@@ -95,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="numberSigned"
-                android:hint="@string/number_hint" />
+                android:hint="@string/id_hint" />
         </android.support.design.widget.TextInputLayout>
 
         <Spinner

@@ -37,64 +37,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="user_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml">
+      <file leaf-file-name="YoutubeFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-37.70909">
-              <caret line="167" column="49" selection-start-line="167" selection-start-column="49" selection-end-line="167" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.68248177">
+              <caret line="167" column="16" selection-start-line="167" selection-start-column="16" selection-end-line="167" selection-end-column="16" />
               <folding>
-                <element signature="e#880#904#0" expanded="true" />
-                <element signature="e#1225#1247#0" expanded="true" />
-                <element signature="e#1531#1546#0" expanded="true" />
-                <element signature="e#2081#2096#0" expanded="true" />
-                <element signature="e#2141#2156#0" expanded="true" />
-                <element signature="e#2397#2421#0" expanded="true" />
-                <element signature="e#2669#2684#0" expanded="true" />
-                <element signature="e#2729#2744#0" expanded="true" />
-                <element signature="e#2988#3012#0" expanded="true" />
-                <element signature="e#3260#3275#0" expanded="true" />
-                <element signature="e#3320#3335#0" expanded="true" />
-                <element signature="e#3577#3601#0" expanded="true" />
-                <element signature="e#3849#3864#0" expanded="true" />
-                <element signature="e#3909#3924#0" expanded="true" />
-                <element signature="e#4164#4188#0" expanded="true" />
-                <element signature="e#4436#4451#0" expanded="true" />
-                <element signature="e#4496#4511#0" expanded="true" />
-                <element signature="e#4752#4776#0" expanded="true" />
-                <element signature="e#5024#5039#0" expanded="true" />
-                <element signature="e#5084#5099#0" expanded="true" />
-                <element signature="e#5343#5367#0" expanded="true" />
-                <element signature="e#5615#5630#0" expanded="true" />
-                <element signature="e#5675#5690#0" expanded="true" />
-                <element signature="e#5930#5954#0" expanded="true" />
-                <element signature="e#6202#6217#0" expanded="true" />
-                <element signature="e#6262#6277#0" expanded="true" />
-                <element signature="e#6523#6547#0" expanded="true" />
-                <element signature="e#6795#6810#0" expanded="true" />
-                <element signature="e#6855#6870#0" expanded="true" />
-                <element signature="e#7119#7143#0" expanded="true" />
-                <element signature="e#7391#7406#0" expanded="true" />
-                <element signature="e#7451#7466#0" expanded="true" />
-                <element signature="e#7714#7738#0" expanded="true" />
-                <element signature="e#7986#8001#0" expanded="true" />
-                <element signature="e#8046#8061#0" expanded="true" />
-                <element signature="e#8304#8328#0" expanded="true" />
+                <element signature="e#3012#3160#0" expanded="true" />
+                <element signature="e#3159#3160#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sign_in_layout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sign_in_layout.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.3090909">
+              <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+              <folding>
+                <element signature="e#2105#2128#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="YoutubeFragment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java">
+      <file leaf-file-name="Advertisement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/Advertisement.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+              <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
               <folding>
-                <element signature="e#5470#5471#0" expanded="true" />
-                <element signature="e#5525#5526#0" expanded="true" />
+                <element signature="e#1197#1198#0" expanded="true" />
+                <element signature="e#1226#1227#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.655172">
+              <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,76 +93,29 @@
       <file leaf-file-name="SignUpActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="195" column="83" selection-start-line="195" selection-start-column="31" selection-end-line="195" selection-end-column="83" />
-              <folding>
-                <element signature="e#8811#8863#0" expanded="true" />
-                <element signature="e#8974#9026#0" expanded="true" />
-                <element signature="e#9133#9185#0" expanded="true" />
-                <element signature="e#9298#9350#0" expanded="true" />
-                <element signature="e#9462#9514#0" expanded="true" />
-                <element signature="e#9630#9682#0" expanded="true" />
-                <element signature="e#9807#9859#0" expanded="true" />
-                <element signature="e#9969#10021#0" expanded="true" />
-                <element signature="e#10130#10177#0" expanded="true" />
-                <element signature="e#10310#10357#0" expanded="true" />
-                <element signature="e#10582#10629#0" expanded="true" />
-                <element signature="e#10876#10923#0" expanded="true" />
-                <element signature="e#11150#11197#0" expanded="true" />
-                <element signature="e#11324#11371#0" expanded="true" />
-                <element signature="e#11536#11581#0" expanded="true" />
-                <element signature="e#11776#11823#0" expanded="true" />
-                <element signature="e#12030#12083#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/header.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.018182">
-              <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="143" column="39" selection-start-line="143" selection-start-column="39" selection-end-line="143" selection-end-column="39" />
+            <state vertical-scroll-proportion="-12.896552">
+              <caret line="248" column="28" selection-start-line="243" selection-start-column="8" selection-end-line="253" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#9581#9633#0" expanded="true" />
+                <element signature="e#9744#9796#0" expanded="true" />
+                <element signature="e#9903#9955#0" expanded="true" />
+                <element signature="e#10093#10149#0" expanded="true" />
+                <element signature="e#10261#10313#0" expanded="true" />
+                <element signature="e#10429#10481#0" expanded="true" />
+                <element signature="e#10606#10658#0" expanded="true" />
+                <element signature="e#10768#10820#0" expanded="true" />
+                <element signature="e#10929#10976#0" expanded="true" />
+                <element signature="e#11109#11156#0" expanded="true" />
+                <element signature="e#11381#11428#0" expanded="true" />
+                <element signature="e#11675#11722#0" expanded="true" />
+                <element signature="e#11949#11996#0" expanded="true" />
+                <element signature="e#12123#12170#0" expanded="true" />
+                <element signature="e#12335#12380#0" expanded="true" />
+                <element signature="e#12575#12622#0" expanded="true" />
+                <element signature="e#12829#12882#0" expanded="true" />
               </folding>
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MyAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.206897">
-              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_playback.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_playback.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25095785">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
@@ -180,46 +123,80 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserEditFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="236" column="94" selection-start-line="236" selection-start-column="94" selection-end-line="236" selection-end-column="94" />
+              <caret line="231" column="24" selection-start-line="231" selection-start-column="24" selection-end-line="231" selection-end-column="24" />
               <folding>
-                <element signature="e#2084#2247#0" expanded="true" />
-                <element signature="e#2246#2247#0" expanded="true" />
-                <element signature="e#2352#2503#0" expanded="true" />
-                <element signature="e#2502#2503#0" expanded="true" />
-                <element signature="e#7408#7460#0" expanded="true" />
-                <element signature="e#7571#7623#0" expanded="true" />
-                <element signature="e#7730#7782#0" expanded="true" />
-                <element signature="e#7894#7946#0" expanded="true" />
-                <element signature="e#8062#8114#0" expanded="true" />
-                <element signature="e#8239#8291#0" expanded="true" />
-                <element signature="e#8401#8453#0" expanded="true" />
-                <element signature="e#8562#8614#0" expanded="true" />
-                <element signature="e#8843#8890#0" expanded="true" />
-                <element signature="e#9117#9164#0" expanded="true" />
-                <element signature="e#9306#9353#0" expanded="true" />
-                <element signature="e#9527#9572#0" expanded="true" />
-                <element signature="e#9776#9823#0" expanded="true" />
+                <element signature="e#7757#7809#0" expanded="true" />
+                <element signature="e#7920#7972#0" expanded="true" />
+                <element signature="e#8079#8131#0" expanded="true" />
+                <element signature="e#8243#8295#0" expanded="true" />
+                <element signature="e#8411#8463#0" expanded="true" />
+                <element signature="e#8588#8640#0" expanded="true" />
+                <element signature="e#8750#8802#0" expanded="true" />
+                <element signature="e#8911#8963#0" expanded="true" />
+                <element signature="e#9084#9131#0" expanded="true" />
+                <element signature="e#9356#9403#0" expanded="true" />
+                <element signature="e#9618#9665#0" expanded="true" />
+                <element signature="e#9912#9959#0" expanded="true" />
+                <element signature="e#10186#10233#0" expanded="true" />
+                <element signature="e#10375#10422#0" expanded="true" />
+                <element signature="e#10596#10641#0" expanded="true" />
+                <element signature="e#10845#10892#0" expanded="true" />
+                <element signature="e#11108#11161#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <file leaf-file-name="activity_playback.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_playback.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
-              <folding />
+            <state vertical-scroll-proportion="-4.6363635">
+              <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="63" />
+              <folding>
+                <element signature="e#517#557#0" expanded="true" />
+                <element signature="e#1801#1820#0" expanded="true" />
+                <element signature="e#2171#2190#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <file leaf-file-name="playback_layout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.6981134">
-              <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-              <folding />
+            <state vertical-scroll-proportion="-5.6363635">
+              <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+              <folding>
+                <element signature="e#312#352#0" expanded="true" />
+                <element signature="e#1761#1784#0" expanded="true" />
+                <element signature="e#2487#2510#0" expanded="true" />
+                <element signature="e#3195#3218#0" expanded="true" />
+                <element signature="e#3469#3503#0" expanded="true" />
+                <element signature="e#3598#3628#0" expanded="true" />
+                <element signature="e#3985#4008#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-28.551723">
+              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2068#2710#0" expanded="true" />
+                <element signature="e#2709#2710#0" expanded="true" />
+                <element signature="e#2965#2984#0" expanded="true" />
+                <element signature="e#2985#3005#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1751,36 +1728,37 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_app.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/StreamFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/tool_bar.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RecyclerItemClickListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/recycler_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/InfoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/header.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/info_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/sign_in_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RequestBodies/TransferRequestBody.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/User.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/Advertisement.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/sign_up_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/user_edit_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/ServerData.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RetroFitServer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserEditFragment.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MyAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/sign_up_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RetroFitServer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RequestBodies/AddUserBody.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/user_edit_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserEditFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/Advertisement.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/sign_in_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_playback.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java" />
       </list>
     </option>
   </component>
@@ -1801,7 +1779,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="AndroidView" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -1815,26 +1793,16 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReklappClient" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="ReklappClient" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1870,6 +1838,128 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReklappClient" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReklappClient" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReklappClient" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReklappClient" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reklappclient" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReklappClient" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="reklappclient" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RequestBodies" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReklappClient" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="manifests" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReklappClient" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2164,7 +2254,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
@@ -2182,7 +2272,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24840085" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24840085" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2210,11 +2300,45 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="24" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java</url>
+          <line>106</line>
+          <properties />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserEditFragment.java</url>
+          <line>78</line>
+          <properties />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java</url>
+          <line>188</line>
+          <properties />
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java</url>
+          <line>204</line>
+          <properties />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="47" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2230,16 +2354,61 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sign_up_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="154" column="58" selection-start-line="154" selection-start-column="58" selection-end-line="154" selection-end-column="58" />
           <folding>
-            <element signature="e#8940#8962#0" expanded="true" />
+            <element signature="e#705#725#0" expanded="true" />
+            <element signature="e#759#778#0" expanded="true" />
+            <element signature="e#813#833#0" expanded="true" />
+            <element signature="e#874#894#0" expanded="true" />
+            <element signature="e#1184#1199#0" expanded="true" />
+            <element signature="e#1240#1255#0" expanded="true" />
+            <element signature="e#1540#1559#0" expanded="true" />
+            <element signature="e#1810#1825#0" expanded="true" />
+            <element signature="e#1866#1881#0" expanded="true" />
+            <element signature="e#2153#2176#0" expanded="true" />
+            <element signature="e#2427#2442#0" expanded="true" />
+            <element signature="e#2483#2498#0" expanded="true" />
+            <element signature="e#2769#2790#0" expanded="true" />
+            <element signature="e#3041#3056#0" expanded="true" />
+            <element signature="e#3097#3112#0" expanded="true" />
+            <element signature="e#3386#3406#0" expanded="true" />
+            <element signature="e#3657#3672#0" expanded="true" />
+            <element signature="e#3713#3728#0" expanded="true" />
+            <element signature="e#4001#4024#0" expanded="true" />
+            <element signature="e#4274#4289#0" expanded="true" />
+            <element signature="e#4330#4345#0" expanded="true" />
+            <element signature="e#4613#4630#0" expanded="true" />
+            <element signature="e#4993#5008#0" expanded="true" />
+            <element signature="e#5049#5064#0" expanded="true" />
+            <element signature="e#5257#5272#0" expanded="true" />
+            <element signature="e#5313#5328#0" expanded="true" />
+            <element signature="e#5600#5622#0" expanded="true" />
+            <element signature="e#5983#5998#0" expanded="true" />
+            <element signature="e#6039#6054#0" expanded="true" />
+            <element signature="e#6247#6262#0" expanded="true" />
+            <element signature="e#6303#6318#0" expanded="true" />
+            <element signature="e#6584#6609#0" expanded="true" />
+            <element signature="e#6979#6994#0" expanded="true" />
+            <element signature="e#7035#7050#0" expanded="true" />
+            <element signature="e#7243#7258#0" expanded="true" />
+            <element signature="e#7299#7314#0" expanded="true" />
+            <element signature="e#7584#7617#0" expanded="true" />
+            <element signature="e#7868#7883#0" expanded="true" />
+            <element signature="e#7924#7939#0" expanded="true" />
+            <element signature="e#8204#8241#0" expanded="true" />
+            <element signature="e#8559#8581#0" expanded="true" />
+            <element signature="e#8622#8644#0" expanded="true" />
+            <element signature="e#8670#8704#0" expanded="true" />
+            <element signature="e#8888#8910#0" expanded="true" />
+            <element signature="e#8936#8958#0" expanded="true" />
+            <element signature="e#9025#9051#0" expanded="true" />
           </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/relationships.xml">
@@ -2251,14 +2420,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sign_in_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/dimens.xml">
@@ -2289,7 +2458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2326,6 +2494,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35823753">
           <caret line="11" column="64" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="64" />
@@ -2334,11 +2505,11 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.4727273">
           <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
@@ -2347,33 +2518,22 @@
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_sign_up.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.92727274">
           <caret line="3" column="55" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="55" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/extras/android/m2repository/com/android/support/recyclerview-v7/23.4.0/recyclerview-v7-23.4.0-sources.jar!/android/support/v7/widget/RecyclerView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33268103">
           <caret line="2260" column="0" selection-start-line="2260" selection-start-column="0" selection-end-line="2260" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66061705">
-          <caret line="33" column="52" selection-start-line="33" selection-start-column="52" selection-end-line="33" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2392,14 +2552,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/recycler_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
@@ -2419,25 +2579,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/info_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6091954">
           <caret line="59" column="60" selection-start-line="59" selection-start-column="60" selection-end-line="59" selection-end-column="60" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1724138">
-          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/relationships.xml">
@@ -2448,21 +2597,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-23/android/widget/EditText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="e#2476#2477#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-23/android/text/SpannableStringBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="994" column="0" selection-start-line="994" selection-start-column="0" selection-end-line="994" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2470,9 +2608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.5945945">
           <caret line="587" column="0" selection-start-line="587" selection-start-column="0" selection-end-line="587" selection-end-column="0" />
-          <folding>
-            <element signature="e#24680#24681#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2481,16 +2616,6 @@
         <state vertical-scroll-proportion="-31.896551">
           <caret line="340" column="0" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RequestBodies/TransferRequestBody.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26516464">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding>
-            <element signature="e#243#244#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2505,120 +2630,147 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/Advertisement.java">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
-          <folding>
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1089#1090#0" expanded="true" />
-            <element signature="e#1127#1128#0" expanded="true" />
-            <element signature="e#1161#1162#0" expanded="true" />
-            <element signature="e#1194#1195#0" expanded="true" />
-            <element signature="e#1223#1224#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sign_in_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6181818">
-          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5303293">
-          <caret line="26" column="27" selection-start-line="17" selection-start-column="4" selection-end-line="27" selection-end-column="35" />
+          <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sign_up_layout.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MyAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8333333">
-          <caret line="58" column="35" selection-start-line="52" selection-start-column="8" selection-end-line="62" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.0">
+          <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
           <folding>
-            <element signature="e#705#725#0" expanded="true" />
-            <element signature="e#759#778#0" expanded="true" />
-            <element signature="e#813#833#0" expanded="true" />
-            <element signature="e#874#894#0" expanded="true" />
-            <element signature="e#1184#1199#0" expanded="true" />
-            <element signature="e#1240#1255#0" expanded="true" />
-            <element signature="e#1540#1559#0" expanded="true" />
-            <element signature="e#1810#1825#0" expanded="true" />
-            <element signature="e#1866#1881#0" expanded="true" />
-            <element signature="e#2153#2176#0" expanded="true" />
-            <element signature="e#2427#2442#0" expanded="true" />
-            <element signature="e#2483#2498#0" expanded="true" />
-            <element signature="e#2769#2790#0" expanded="true" />
-            <element signature="e#3041#3056#0" expanded="true" />
-            <element signature="e#3097#3112#0" expanded="true" />
-            <element signature="e#3386#3406#0" expanded="true" />
-            <element signature="e#3657#3672#0" expanded="true" />
-            <element signature="e#3713#3728#0" expanded="true" />
-            <element signature="e#4001#4024#0" expanded="true" />
-            <element signature="e#4274#4289#0" expanded="true" />
-            <element signature="e#4330#4345#0" expanded="true" />
-            <element signature="e#4613#4634#0" expanded="true" />
-            <element signature="e#4997#5012#0" expanded="true" />
-            <element signature="e#5053#5068#0" expanded="true" />
-            <element signature="e#5261#5276#0" expanded="true" />
-            <element signature="e#5317#5332#0" expanded="true" />
-            <element signature="e#5604#5626#0" expanded="true" />
-            <element signature="e#5987#6002#0" expanded="true" />
-            <element signature="e#6043#6058#0" expanded="true" />
-            <element signature="e#6251#6266#0" expanded="true" />
-            <element signature="e#6307#6322#0" expanded="true" />
-            <element signature="e#6588#6613#0" expanded="true" />
-            <element signature="e#6983#6998#0" expanded="true" />
-            <element signature="e#7039#7054#0" expanded="true" />
-            <element signature="e#7247#7262#0" expanded="true" />
-            <element signature="e#7303#7318#0" expanded="true" />
-            <element signature="e#7588#7621#0" expanded="true" />
-            <element signature="e#7872#7887#0" expanded="true" />
-            <element signature="e#7928#7943#0" expanded="true" />
-            <element signature="e#8208#8245#0" expanded="true" />
-            <element signature="e#8563#8585#0" expanded="true" />
-            <element signature="e#8626#8648#0" expanded="true" />
-            <element signature="e#8674#8708#0" expanded="true" />
-            <element signature="e#8892#8914#0" expanded="true" />
-            <element signature="e#8940#8962#0" expanded="true" />
-            <element signature="e#9029#9055#0" expanded="true" />
+            <element signature="e#341#359#0" expanded="true" />
+            <element signature="e#522#540#0" expanded="true" />
+            <element signature="e#961#979#0" expanded="true" />
+            <element signature="e#1194#1212#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-23/android/widget/EditText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="e#2476#2477#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/header.xml">
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.0">
+          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RequestBodies/TransferRequestBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding>
+            <element signature="e#207#208#0" expanded="false" />
+            <element signature="e#243#244#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RequestBodies/AddUserBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <element signature="e#193#194#0" expanded="false" />
+            <element signature="e#231#232#0" expanded="false" />
+            <element signature="e#265#266#0" expanded="false" />
+            <element signature="e#295#296#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RetroFitServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
+          <caret line="25" column="54" selection-start-line="25" selection-start-column="54" selection-end-line="25" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+        <state vertical-scroll-proportion="-6.490909">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_edit_layout.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.7818184">
-          <caret line="155" column="44" selection-start-line="155" selection-start-column="44" selection-end-line="155" selection-end-column="44" />
+        <state vertical-scroll-proportion="-8.641509">
+          <caret line="28" column="76" selection-start-line="28" selection-start-column="76" selection-end-line="28" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.3448277">
+          <caret line="4" column="56" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.655172">
+          <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sign_up_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4727273">
+          <caret line="53" column="15" selection-start-line="52" selection-start-column="8" selection-end-line="62" selection-end-column="56" />
+          <folding>
+            <element signature="e#4613#4630#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_edit_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.872727">
+          <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
           <folding>
             <element signature="e#758#773#0" expanded="true" />
             <element signature="e#814#829#0" expanded="true" />
@@ -2631,125 +2783,59 @@
             <element signature="e#2330#2350#0" expanded="true" />
             <element signature="e#2601#2616#0" expanded="true" />
             <element signature="e#2657#2672#0" expanded="true" />
-            <element signature="e#2940#2957#0" expanded="true" />
-            <element signature="e#3320#3335#0" expanded="true" />
-            <element signature="e#3376#3391#0" expanded="true" />
-            <element signature="e#3584#3599#0" expanded="true" />
-            <element signature="e#3640#3655#0" expanded="true" />
-            <element signature="e#3927#3949#0" expanded="true" />
-            <element signature="e#4310#4325#0" expanded="true" />
-            <element signature="e#4366#4381#0" expanded="true" />
-            <element signature="e#4574#4589#0" expanded="true" />
-            <element signature="e#4630#4645#0" expanded="true" />
-            <element signature="e#4911#4936#0" expanded="true" />
-            <element signature="e#5306#5321#0" expanded="true" />
-            <element signature="e#5362#5377#0" expanded="true" />
-            <element signature="e#5570#5585#0" expanded="true" />
-            <element signature="e#5626#5641#0" expanded="true" />
-            <element signature="e#5911#5944#0" expanded="true" />
-            <element signature="e#6195#6210#0" expanded="true" />
-            <element signature="e#6251#6266#0" expanded="true" />
-            <element signature="e#6531#6568#0" expanded="true" />
-            <element signature="e#7074#7096#0" expanded="true" />
-            <element signature="e#7141#7163#0" expanded="true" />
-            <element signature="e#7493#7515#0" expanded="true" />
-            <element signature="e#7560#7582#0" expanded="true" />
+            <element signature="e#2943#2964#0" expanded="true" />
+            <element signature="e#3215#3230#0" expanded="true" />
+            <element signature="e#3271#3286#0" expanded="true" />
+            <element signature="e#3554#3571#0" expanded="true" />
+            <element signature="e#3934#3949#0" expanded="true" />
+            <element signature="e#3990#4005#0" expanded="true" />
+            <element signature="e#4198#4213#0" expanded="true" />
+            <element signature="e#4254#4269#0" expanded="true" />
+            <element signature="e#4541#4563#0" expanded="true" />
+            <element signature="e#4924#4939#0" expanded="true" />
+            <element signature="e#4980#4995#0" expanded="true" />
+            <element signature="e#5188#5203#0" expanded="true" />
+            <element signature="e#5244#5259#0" expanded="true" />
+            <element signature="e#5525#5550#0" expanded="true" />
+            <element signature="e#5920#5935#0" expanded="true" />
+            <element signature="e#5976#5991#0" expanded="true" />
+            <element signature="e#6184#6199#0" expanded="true" />
+            <element signature="e#6240#6255#0" expanded="true" />
+            <element signature="e#6525#6558#0" expanded="true" />
+            <element signature="e#6809#6824#0" expanded="true" />
+            <element signature="e#6865#6880#0" expanded="true" />
+            <element signature="e#7145#7182#0" expanded="true" />
+            <element signature="e#7688#7710#0" expanded="true" />
+            <element signature="e#7755#7777#0" expanded="true" />
+            <element signature="e#8107#8129#0" expanded="true" />
+            <element signature="e#8174#8196#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-37.70909">
-          <caret line="167" column="49" selection-start-line="167" selection-start-column="49" selection-end-line="167" selection-end-column="49" />
-          <folding>
-            <element signature="e#880#904#0" expanded="true" />
-            <element signature="e#1225#1247#0" expanded="true" />
-            <element signature="e#1531#1546#0" expanded="true" />
-            <element signature="e#2081#2096#0" expanded="true" />
-            <element signature="e#2141#2156#0" expanded="true" />
-            <element signature="e#2397#2421#0" expanded="true" />
-            <element signature="e#2669#2684#0" expanded="true" />
-            <element signature="e#2729#2744#0" expanded="true" />
-            <element signature="e#2988#3012#0" expanded="true" />
-            <element signature="e#3260#3275#0" expanded="true" />
-            <element signature="e#3320#3335#0" expanded="true" />
-            <element signature="e#3577#3601#0" expanded="true" />
-            <element signature="e#3849#3864#0" expanded="true" />
-            <element signature="e#3909#3924#0" expanded="true" />
-            <element signature="e#4164#4188#0" expanded="true" />
-            <element signature="e#4436#4451#0" expanded="true" />
-            <element signature="e#4496#4511#0" expanded="true" />
-            <element signature="e#4752#4776#0" expanded="true" />
-            <element signature="e#5024#5039#0" expanded="true" />
-            <element signature="e#5084#5099#0" expanded="true" />
-            <element signature="e#5343#5367#0" expanded="true" />
-            <element signature="e#5615#5630#0" expanded="true" />
-            <element signature="e#5675#5690#0" expanded="true" />
-            <element signature="e#5930#5954#0" expanded="true" />
-            <element signature="e#6202#6217#0" expanded="true" />
-            <element signature="e#6262#6277#0" expanded="true" />
-            <element signature="e#6523#6547#0" expanded="true" />
-            <element signature="e#6795#6810#0" expanded="true" />
-            <element signature="e#6855#6870#0" expanded="true" />
-            <element signature="e#7119#7143#0" expanded="true" />
-            <element signature="e#7391#7406#0" expanded="true" />
-            <element signature="e#7451#7466#0" expanded="true" />
-            <element signature="e#7714#7738#0" expanded="true" />
-            <element signature="e#7986#8001#0" expanded="true" />
-            <element signature="e#8046#8061#0" expanded="true" />
-            <element signature="e#8304#8328#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="43" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
-          <folding>
-            <element signature="e#5470#5471#0" expanded="true" />
-            <element signature="e#5525#5526#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6981134">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="195" column="83" selection-start-line="195" selection-start-column="31" selection-end-line="195" selection-end-column="83" />
+        <state vertical-scroll-proportion="-12.896552">
+          <caret line="248" column="28" selection-start-line="243" selection-start-column="8" selection-end-line="253" selection-end-column="9" />
           <folding>
-            <element signature="e#8811#8863#0" expanded="true" />
-            <element signature="e#8974#9026#0" expanded="true" />
-            <element signature="e#9133#9185#0" expanded="true" />
-            <element signature="e#9298#9350#0" expanded="true" />
-            <element signature="e#9462#9514#0" expanded="true" />
-            <element signature="e#9630#9682#0" expanded="true" />
-            <element signature="e#9807#9859#0" expanded="true" />
-            <element signature="e#9969#10021#0" expanded="true" />
-            <element signature="e#10130#10177#0" expanded="true" />
-            <element signature="e#10310#10357#0" expanded="true" />
-            <element signature="e#10582#10629#0" expanded="true" />
-            <element signature="e#10876#10923#0" expanded="true" />
-            <element signature="e#11150#11197#0" expanded="true" />
-            <element signature="e#11324#11371#0" expanded="true" />
-            <element signature="e#11536#11581#0" expanded="true" />
-            <element signature="e#11776#11823#0" expanded="true" />
-            <element signature="e#12030#12083#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#9581#9633#0" expanded="true" />
+            <element signature="e#9744#9796#0" expanded="true" />
+            <element signature="e#9903#9955#0" expanded="true" />
+            <element signature="e#10093#10149#0" expanded="true" />
+            <element signature="e#10261#10313#0" expanded="true" />
+            <element signature="e#10429#10481#0" expanded="true" />
+            <element signature="e#10606#10658#0" expanded="true" />
+            <element signature="e#10768#10820#0" expanded="true" />
+            <element signature="e#10929#10976#0" expanded="true" />
+            <element signature="e#11109#11156#0" expanded="true" />
+            <element signature="e#11381#11428#0" expanded="true" />
+            <element signature="e#11675#11722#0" expanded="true" />
+            <element signature="e#11949#11996#0" expanded="true" />
+            <element signature="e#12123#12170#0" expanded="true" />
+            <element signature="e#12335#12380#0" expanded="true" />
+            <element signature="e#12575#12622#0" expanded="true" />
+            <element signature="e#12829#12882#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2757,75 +2843,110 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserEditFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="236" column="94" selection-start-line="236" selection-start-column="94" selection-end-line="236" selection-end-column="94" />
+          <caret line="231" column="24" selection-start-line="231" selection-start-column="24" selection-end-line="231" selection-end-column="24" />
           <folding>
-            <element signature="e#2084#2247#0" expanded="true" />
-            <element signature="e#2246#2247#0" expanded="true" />
-            <element signature="e#2352#2503#0" expanded="true" />
-            <element signature="e#2502#2503#0" expanded="true" />
-            <element signature="e#7408#7460#0" expanded="true" />
-            <element signature="e#7571#7623#0" expanded="true" />
-            <element signature="e#7730#7782#0" expanded="true" />
-            <element signature="e#7894#7946#0" expanded="true" />
-            <element signature="e#8062#8114#0" expanded="true" />
-            <element signature="e#8239#8291#0" expanded="true" />
-            <element signature="e#8401#8453#0" expanded="true" />
-            <element signature="e#8562#8614#0" expanded="true" />
-            <element signature="e#8843#8890#0" expanded="true" />
-            <element signature="e#9117#9164#0" expanded="true" />
-            <element signature="e#9306#9353#0" expanded="true" />
-            <element signature="e#9527#9572#0" expanded="true" />
-            <element signature="e#9776#9823#0" expanded="true" />
+            <element signature="e#7757#7809#0" expanded="true" />
+            <element signature="e#7920#7972#0" expanded="true" />
+            <element signature="e#8079#8131#0" expanded="true" />
+            <element signature="e#8243#8295#0" expanded="true" />
+            <element signature="e#8411#8463#0" expanded="true" />
+            <element signature="e#8588#8640#0" expanded="true" />
+            <element signature="e#8750#8802#0" expanded="true" />
+            <element signature="e#8911#8963#0" expanded="true" />
+            <element signature="e#9084#9131#0" expanded="true" />
+            <element signature="e#9356#9403#0" expanded="true" />
+            <element signature="e#9618#9665#0" expanded="true" />
+            <element signature="e#9912#9959#0" expanded="true" />
+            <element signature="e#10186#10233#0" expanded="true" />
+            <element signature="e#10375#10422#0" expanded="true" />
+            <element signature="e#10596#10641#0" expanded="true" />
+            <element signature="e#10845#10892#0" expanded="true" />
+            <element signature="e#11108#11161#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
-          <folding />
+        <state vertical-scroll-proportion="-5.6363635">
+          <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+          <folding>
+            <element signature="e#312#352#0" expanded="true" />
+            <element signature="e#1761#1784#0" expanded="true" />
+            <element signature="e#2487#2510#0" expanded="true" />
+            <element signature="e#3195#3218#0" expanded="true" />
+            <element signature="e#3469#3503#0" expanded="true" />
+            <element signature="e#3598#3628#0" expanded="true" />
+            <element signature="e#3985#4008#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/header.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/Advertisement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.018182">
-          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding>
+            <element signature="e#1197#1198#0" expanded="true" />
+            <element signature="e#1226#1227#0" expanded="true" />
+          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="143" column="39" selection-start-line="143" selection-start-column="39" selection-end-line="143" selection-end-column="39" />
+        <state vertical-scroll-proportion="-28.551723">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2068#2710#0" expanded="true" />
+            <element signature="e#2709#2710#0" expanded="true" />
+            <element signature="e#2965#2984#0" expanded="true" />
+            <element signature="e#2985#3005#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MyAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sign_in_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.206897">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding />
+        <state vertical-scroll-proportion="-3.3090909">
+          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+          <folding>
+            <element signature="e#2105#2128#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_playback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25095785">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6363635">
+          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="63" />
+          <folding>
+            <element signature="e#517#557#0" expanded="true" />
+            <element signature="e#1801#1820#0" expanded="true" />
+            <element signature="e#2171#2190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68248177">
+          <caret line="167" column="16" selection-start-line="167" selection-start-column="16" selection-end-line="167" selection-end-column="16" />
+          <folding>
+            <element signature="e#3012#3160#0" expanded="true" />
+            <element signature="e#3159#3160#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

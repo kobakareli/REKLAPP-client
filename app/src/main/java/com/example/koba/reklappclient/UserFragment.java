@@ -15,6 +15,7 @@ import android.widget.TextView;
  */
 public class UserFragment extends Fragment {
 
+    private TextView balance;
     private TextView name;
     private TextView surname;
     private TextView email;
@@ -56,27 +57,29 @@ public class UserFragment extends Fragment {
     }
 
     private void initTextViews(View rootView, User user) {
+        balance = (TextView) rootView.findViewById(R.id.balance);
+        balance.setText("ანგარიში: " + user.money);
         name = (TextView) rootView.findViewById(R.id.name);
-        name.setText(user.name);
+        name.setText("სახელი: " + user.name);
         surname = (TextView) rootView.findViewById(R.id.surname);
-        surname.setText(user.surname);
+        surname.setText("გვარი: " + user.surname);
         email = (TextView) rootView.findViewById(R.id.email);
-        email.setText(user.email);
+        email.setText("ელ. ფოსტა: " + user.email);
         id = (TextView) rootView.findViewById(R.id.pid);
-        id.setText(user.pin);
+        id.setText("პირადი ნომერი: " + user.pin);
         city = (TextView) rootView.findViewById(R.id.city);
-        city.setText(user.city);
+        city.setText("ქალაქი: " + user.city);
         address = (TextView) rootView.findViewById(R.id.address);
-        address.setText(user.street_address);
+        address.setText("მისამართი: " + user.street_address);
         sex = (TextView) rootView.findViewById(R.id.sex);
-        sex.setText(user.sex);
+        sex.setText("სქესი: " + user.sex);
         birthdate = (TextView) rootView.findViewById(R.id.birthdate);
-        birthdate.setText(user.birthdate);
+        birthdate.setText("დაბადების თარიღი: " + user.birthdate);
         relationship = (TextView) rootView.findViewById(R.id.relationship);
-        relationship.setText(user.relationship);
+        relationship.setText("ოჯახური მდგომარეობა: " + user.relationship);
         numberOfChildren = (TextView) rootView.findViewById(R.id.numChildren);
-        numberOfChildren.setText(user.number_of_children);
+        numberOfChildren.setText("შვილების რაოდენობა: " + Integer.toString(user.number_of_children));
         averageIncome = (TextView) rootView.findViewById(R.id.income);
-        averageIncome.setText(user.average_monthly_income);
+        averageIncome.setText("საშუალო თვიური შემოსავალი: " + Integer.toString(user.average_monthly_income));
     }
 }

@@ -1,6 +1,7 @@
 package com.example.koba.reklappclient;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +23,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.koba.reklappclient.RequestBodies.AddUserBody;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
@@ -73,6 +79,7 @@ public class SignUpActivity extends AppCompatActivity{
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final ProgressDialog loading = ProgressDialog.show(SignUpActivity.this, "მიმდინარეობს ჩატვირთვა", "გთხოვთ დაიცადოთ...",false,false);
                 String nameString = name.getText().toString();
                 String surnameString = surname.getText().toString();
                 String numberString = number.getText().toString();
@@ -94,19 +101,25 @@ public class SignUpActivity extends AppCompatActivity{
                     RetroFitServer api = adapter.create(RetroFitServer.class);
                     final User user = new User(nameString, surnameString, hashPassword(passwordString), idString, "საქართველო", city, addressString,
                             numberString, gender, birthdateString, relationship, emailString, "", Integer.parseInt(numberOfChildrenString), Integer.parseInt(incomeString), 0.0);
-                    api.addUser(user, new Callback<Response>() {
+                    api.addUser(user, new Callback<AddUserBody>() {
                         @Override
-                        public void success(Response response, Response response2) {
-                            Intent intent = new Intent(SignUpActivity.this, AppActivity.class);
-                            intent.putExtra("user", user);
-                            startActivity(intent);
-                            finish();
+                        public void success(AddUserBody response, Response response2) {
+                            if (response != null && response.getProblem().compareTo("Update completed.") == 0) {
+                                loading.dismiss();
+                                Intent intent = new Intent(SignUpActivity.this, AppActivity.class);
+                                intent.putExtra("user", user);
+                                startActivity(intent);
+                                finish();
+                            }
+                            loading.dismiss();
+                            Toast.makeText(SignUpActivity.this, response.getProblem(), Toast.LENGTH_SHORT).show();
                         }
 
                         @Override
                         public void failure(RetrofitError error) {
+                            loading.dismiss();
                             error.printStackTrace();
-                            //System.out.println(ServerData.getString(error.getResponse())); TODO fix sql date conversion here and in edit fragment
+                            //System.out.println(ServerData.getString(error.getResponse())); //TODO fix sql date conversion here and in edit fragment
                         }
                     });
                 }
@@ -142,7 +155,7 @@ public class SignUpActivity extends AppCompatActivity{
     }
 
     private void setUpDatePicker() {
-        final SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         Calendar newCalendar = Calendar.getInstance();
         final DatePickerDialog birthDatePicker = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
 
@@ -204,8 +217,8 @@ public class SignUpActivity extends AppCompatActivity{
             this.email.setError(getResources().getString(R.string.empty_field_error));
             status = false;
         }
-        if(password.length() == 0) {
-            this.password.setError(getResources().getString(R.string.empty_field_error));
+        if(password.length() < 6 || password.length() > 20) {
+            this.password.setError(getResources().getString(R.string.password_length_error));
             status = false;
         }
         if (address.length() == 0) {

@@ -1,5 +1,6 @@
 package com.example.koba.reklappclient;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final ProgressDialog loading = ProgressDialog.show(MainActivity.this, "მიმდინარეობს ჩატვირთვა", "გთხოვთ დაიცადოთ...",false,false);
                 String numberString = number.getText().toString();
                 String passwordString = password.getText().toString();
                 if (isInputValid(numberString, passwordString)) {
@@ -66,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
                     api.getUserByLogin(number.getText().toString(), hashPassword(passwordString), new Callback<User>() {
                         @Override
                         public void success(User user, Response response) {
-                            if (user == null || user.mobile_number == "") {
-                                Toast.makeText(MainActivity.this, "მომხმარებელი აღნიშნული ნომრით და პაროლით ვერ მოიძებნა", Toast.LENGTH_SHORT);
+                            loading.dismiss();
+                            if (user == null || user.mobile_number.compareTo("") == 0) {
+                                Toast.makeText(MainActivity.this, "მომხმარებელი აღნიშნული ნომრით და პაროლით ვერ მოიძებნა", Toast.LENGTH_SHORT).show();
                                 return;
                             }
                             Intent intent = new Intent(MainActivity.this, AppActivity.class);
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void failure(RetrofitError error) {
+                            loading.dismiss();
                             error.printStackTrace();
                         }
                     });
@@ -115,6 +119,11 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return new String(md.digest(password.getBytes()));
+    }
+
+    private String invertDateString(String date) {
+        String[] parts = date.split("-");
+        return parts[2] + "-" + parts[1] + "-" + parts[0];
     }
 
     @Override

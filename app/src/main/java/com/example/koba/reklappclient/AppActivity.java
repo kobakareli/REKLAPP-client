@@ -54,7 +54,7 @@ public class AppActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
         mRecyclerView.setHasFixedSize(true);
 
-        mAdapter = new MyAdapter(TITLES,"My Name is...","My Number",R.drawable.logo);
+        mAdapter = new MyAdapter(TITLES, user.name + " " + user.surname, user.mobile_number, R.drawable.logo);
         mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
@@ -63,11 +63,13 @@ public class AppActivity extends AppCompatActivity {
                 FragmentManager manager = getSupportFragmentManager();
                 Fragment fragment = getFragmentById(position);
 
-                manager.beginTransaction()
-                        .replace(R.id.flContent, fragment)
-                        .addToBackStack(null)
-                        .commit();
-                drawer.closeDrawer(Gravity.LEFT);
+                if (fragment != null) {
+                    manager.beginTransaction()
+                            .replace(R.id.flContent, fragment)
+                            .addToBackStack(null)
+                            .commit();
+                    drawer.closeDrawer(Gravity.LEFT);
+                }
             }
         }));
 
@@ -140,9 +142,11 @@ public class AppActivity extends AppCompatActivity {
         else if(id == 4) {
             f = new UserEditFragment();
         }
-        Bundle args = new Bundle();
-        args.putParcelable("user", user);
-        f.setArguments(args);
+        if(f != null) {
+            Bundle args = new Bundle();
+            args.putParcelable("user", user);
+            f.setArguments(args);
+        }
         return f;
     }
 

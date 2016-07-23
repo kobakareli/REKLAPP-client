@@ -1,6 +1,7 @@
 package com.example.koba.reklappclient;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -19,6 +20,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.koba.reklappclient.RequestBodies.AddUserBody;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -34,6 +37,7 @@ import retrofit.client.Response;
 public class UserEditFragment extends Fragment {
 
     private final int ID_LENGTH = 11;
+    private final int NUMBER_LENGTH = 9;
 
     private TextInputEditText birthDate;
     private Spinner cities;
@@ -42,6 +46,7 @@ public class UserEditFragment extends Fragment {
     private TextInputEditText name;
     private TextInputEditText surname;
     private TextInputEditText email;
+    private TextInputEditText number;
     private TextInputEditText id;
     private TextInputEditText address;
     private TextInputEditText numberOfChildren;
@@ -70,6 +75,7 @@ public class UserEditFragment extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 saveChanges(user);
             }
         });
@@ -96,7 +102,7 @@ public class UserEditFragment extends Fragment {
 
     private void setUpDatePicker(View rootView) {
         birthDate = (TextInputEditText) rootView.findViewById(R.id.birthdate);
-        final SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
         Calendar newCalendar = Calendar.getInstance();
         final DatePickerDialog birthDatePicker = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
 
@@ -134,6 +140,7 @@ public class UserEditFragment extends Fragment {
         name = (TextInputEditText) rootView.findViewById(R.id.name);
         surname = (TextInputEditText) rootView.findViewById(R.id.surname);
         email = (TextInputEditText) rootView.findViewById(R.id.email);
+        number = (TextInputEditText) rootView.findViewById(R.id.number);
         id = (TextInputEditText) rootView.findViewById(R.id.pid);
         address = (TextInputEditText) rootView.findViewById(R.id.address);
         numberOfChildren = (TextInputEditText) rootView.findViewById(R.id.numChildren);
@@ -144,10 +151,11 @@ public class UserEditFragment extends Fragment {
         name.setText(user.name);
         surname.setText(user.surname);
         email.setText(user.email);
+        number.setText(user.mobile_number);
         id.setText(user.pin);
         address.setText(user.street_address);
-        numberOfChildren.setText(user.number_of_children);
-        income.setText(user.average_monthly_income);
+        numberOfChildren.setText(Integer.toString(user.number_of_children));
+        income.setText(Integer.toString(user.average_monthly_income));
         birthDate.setText(user.birthdate);
         String[] cities = getResources().getStringArray(R.array.cities_array);
         for (int i = 1; i < cities.length; i++) {
@@ -172,7 +180,7 @@ public class UserEditFragment extends Fragment {
         }
     }
 
-    private boolean isInputValid(String name, String surname, String email, String address, String birthdate, String numChildren,
+    private boolean isInputValid(String name, String surname, String email, String number, String address, String birthdate, String numChildren,
                                  String income, String city, String gender, String relationship, String id) {
         boolean status = true;
         if(name.length() == 0) {
@@ -206,6 +214,24 @@ public class UserEditFragment extends Fragment {
         if(id.length() != ID_LENGTH) {
             this.id.setError(getResources().getString(R.string.empty_field_error));
             status = false;
+        }
+        if(number.length() != NUMBER_LENGTH) {
+            this.number.setError(getResources().getString(R.string.length_error) + NUMBER_LENGTH);
+            status = false;
+        }
+        for(int i = 0; i < number.length(); i++) {
+            char c = number.charAt(i);
+            if (!Character.isDigit(c)) {
+                this.number.setError(getResources().getString(R.string.number_error));
+                status = false;
+            }
+        }
+        for(int i = 0; i < id.length(); i++) {
+            char c = id.charAt(i);
+            if (!Character.isDigit(c)) {
+                this.id.setError(getResources().getString(R.string.number_error));
+                status = false;
+            }
         }
         for(int i = 0; i < numChildren.length(); i++) {
             char c = numChildren.charAt(i);
@@ -241,9 +267,11 @@ public class UserEditFragment extends Fragment {
     }
 
     public void saveChanges(User user) {
+        final ProgressDialog loading = ProgressDialog.show(getActivity(), "მიმდინარეობს ჩატვირთვა", "გთხოვთ დაიცადოთ...",false,false);
         String nameString = name.getText().toString();
         String surnameString = surname.getText().toString();
         String emailString = email.getText().toString();
+        String numberString = number.getText().toString();
         String addressString = address.getText().toString();
         String numberOfChildrenString = numberOfChildren.getText().toString();
         String incomeString = income.getText().toString();
@@ -252,27 +280,34 @@ public class UserEditFragment extends Fragment {
         String gender = genders.getSelectedItem().toString();
         String relationship = relationships.getSelectedItem().toString();
         String idString = id.getText().toString();
-        if (isInputValid(nameString, surnameString, emailString, addressString,
+        if (isInputValid(nameString, surnameString, emailString, numberString, addressString,
                 birthdateString, numberOfChildrenString, incomeString, city, gender, relationship, idString)) {
             RestAdapter adapter = new RestAdapter.Builder()
                     .setEndpoint(RetroFitServer.URI)
                     .build();
             RetroFitServer api = adapter.create(RetroFitServer.class);
             final User newUser = new User(nameString, surnameString, user.password, idString, "საქართველო", city, addressString,
-                    user.mobile_number, gender, birthdateString, relationship, emailString, "", Integer.parseInt(numberOfChildrenString), Integer.parseInt(incomeString), user.money);
-            api.addUser(user, new Callback<Response>() {
+                    numberString, gender, birthdateString, relationship, emailString, user.mobile_number, Integer.parseInt(numberOfChildrenString), Integer.parseInt(incomeString), user.money);
+            api.addUser(user, new Callback<AddUserBody>() {
                 @Override
-                public void success(Response response, Response response2) {
-                    Intent intent = new Intent(getActivity(), AppActivity.class);
-                    intent.putExtra("user", newUser);
-                    startActivity(intent);
-                    getActivity().finish();
+                public void success(AddUserBody response, Response response2) {
+                    loading.dismiss();
+                    String problem = response.getProblem();
+                    if(problem.compareTo("Update completed.") == 0) {
+                        Intent intent = new Intent(getActivity(), AppActivity.class);
+                        intent.putExtra("user", newUser);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }
+                    else {
+                        Toast.makeText(getActivity(), problem, Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 @Override
                 public void failure(RetrofitError error) {
+                    loading.dismiss();
                     error.printStackTrace();
-                    //System.out.println(ServerData.getString(error.getResponse()));
                 }
             });
         }

@@ -1,5 +1,7 @@
 package com.example.koba.reklappclient;
 
+import com.example.koba.reklappclient.RequestBodies.AddUserBody;
+
 import retrofit.Callback;
 import retrofit.client.Response;
 import retrofit.http.Body;
@@ -21,7 +23,7 @@ public interface RetroFitServer {
 
     @Headers("Content-Type: application/json")
     @PUT("/webapi/users")
-    void addUser(@Body User user, Callback<Response> response);
+    void addUser(@Body User user, Callback<AddUserBody> response);
 
     @POST("/webapi/users/{mobile_number}/transfer/{address}")
     void transferMoney(@Path("mobile_number") String number, @Path("address") String address, Callback<Response> response);

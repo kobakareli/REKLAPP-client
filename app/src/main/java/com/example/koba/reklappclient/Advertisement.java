@@ -33,7 +33,7 @@ public class Advertisement {
         return company;
     }
 
-    public double price() {
+    public double getPrice() {
         return view_gain;
     }
 
