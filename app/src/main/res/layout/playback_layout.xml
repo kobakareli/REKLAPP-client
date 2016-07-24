@@ -40,7 +40,7 @@
                     android:id="@+id/ad_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ვიდეოს ფასი: შეუფასებელი"
+                    android:text="ვიდეოს ფასი:"
                     android:padding="@dimen/stream_padding"/>
 
             </android.support.v7.widget.CardView>
@@ -57,7 +57,7 @@
                     android:id="@+id/product_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="პროდუქტის დასახელება: Not Afraid"
+                    android:text="პროდუქტის დასახელება:"
                     android:padding="@dimen/stream_padding"/>
 
             </android.support.v7.widget.CardView>
@@ -74,7 +74,7 @@
                     android:id="@+id/company"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="მწარმოებელი: Eminem"
+                    android:text="მწარმოებელი:"
                     android:padding="@dimen/stream_padding"/>
 
             </android.support.v7.widget.CardView>
@@ -91,7 +91,7 @@
                     android:id="@+id/product_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="პროდუქტის აღწერა: ძალიან მაგარია!!!"
+                    android:text="პროდუქტის აღწერა:"
                     android:padding="@dimen/stream_padding"/>
 
             </android.support.v7.widget.CardView>

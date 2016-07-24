@@ -63,6 +63,9 @@ public class UserEditFragment extends Fragment {
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
 
+        FloatingActionButton fab2 = (FloatingActionButton) getActivity().findViewById(R.id.fab2);
+        fab2.setVisibility(View.GONE);
+
         Button cancel = (Button) rootView.findViewById(R.id.btn_cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -288,7 +291,7 @@ public class UserEditFragment extends Fragment {
             RetroFitServer api = adapter.create(RetroFitServer.class);
             final User newUser = new User(nameString, surnameString, user.password, idString, "საქართველო", city, addressString,
                     numberString, gender, birthdateString, relationship, emailString, user.mobile_number, Integer.parseInt(numberOfChildrenString), Integer.parseInt(incomeString), user.money);
-            api.addUser(user, new Callback<AddUserBody>() {
+            api.addUser(newUser, new Callback<AddUserBody>() {
                 @Override
                 public void success(AddUserBody response, Response response2) {
                     loading.dismiss();

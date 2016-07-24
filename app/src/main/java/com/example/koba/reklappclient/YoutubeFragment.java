@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Html;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.koba.reklappclient.RequestBodies.AddUserBody;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -31,10 +33,10 @@ public class YoutubeFragment extends Fragment {
 
     public static final String YOUTUBE_API_KEY = "AIzaSyBqzMy33km9EzeA1BE1PXRe6n7OckncUxE";
 
-    private final int PUSH_BUTTON_APPEARANCES = 20;
+    private final int PUSH_BUTTON_APPEARANCES = 5;
     private final int PUSH_BUTTON_DURATION = 5000;
 
-    private int videoCount = 0;
+    private User user;
     private String videoId;
     private FloatingActionButton fab;
     private FloatingActionButton fab2;
@@ -49,17 +51,30 @@ public class YoutubeFragment extends Fragment {
     private YouTubePlayer youtubePlayer;
     private int duration; // current video duration in seconds
     private int pushButtonInterval;
+    private int pushButtonAppeared = 0;
+    private boolean wasPushed = false;
+
+    private CountDownTimer interval;
+    private CountDownTimer visible;
+
+    private boolean watched = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.playback_layout, container, false);
 
         Bundle args = getArguments();
-        User user = args.getParcelable("user");
+        user = args.getParcelable("user");
         userNumber = user.mobile_number;
 
         fab2 = (FloatingActionButton) getActivity().findViewById(R.id.fab2);
         fab2.setVisibility(View.GONE);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                wasPushed = true;
+            }
+        });
 
         company = (TextView) rootView.findViewById(R.id.company);
         product = (TextView) rootView.findViewById(R.id.product_name);
@@ -87,7 +102,40 @@ public class YoutubeFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getNextAd();
+                if (watched) {
+                    user.money += currentAd.getPrice();
+                    api.addUser(user, new Callback<AddUserBody>() {
+                        @Override
+                        public void success(AddUserBody response, Response response2) {
+                            String problem = response.getProblem();
+                            if(problem.compareTo("Update completed.") == 0) {
+                                Fragment current = ((AppActivity) getActivity()).getFragmentById(1);
+                                FragmentManager manager = getActivity().getSupportFragmentManager();
+                                manager.beginTransaction()
+                                        .replace(R.id.flContent, current)
+                                        .addToBackStack(null)
+                                        .commit();
+                            }
+                            else {
+                                user.money -= currentAd.getPrice();
+                                Toast.makeText(getActivity(), "სცადეთ თავიდან", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void failure(RetrofitError error) {
+                            error.printStackTrace();
+                        }
+                    });
+                }
+                else {
+                    Fragment current = ((AppActivity) getActivity()).getFragmentById(1);
+                    FragmentManager manager = getActivity().getSupportFragmentManager();
+                    manager.beginTransaction()
+                            .replace(R.id.flContent, current)
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         });
         YouTubePlayerSupportFragment youTubePlayerFragment = YouTubePlayerSupportFragment.newInstance();
@@ -100,10 +148,11 @@ public class YoutubeFragment extends Fragment {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
                 player.setPlayerStateChangeListener(playerStateChangeListener);
+                player.setPlaybackEventListener(playbackListener);
                 if (!wasRestored) {
                     youtubePlayer = player;
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.MINIMAL);
-                    player.loadVideo(videoId);
+                    player.loadVideo(currentAd.getURL());
                 }
             }
 
@@ -123,6 +172,43 @@ public class YoutubeFragment extends Fragment {
         description.setText(Html.fromHtml("<b>პროდუქტის აღწერა: </b>\n" + currentAd.getDescription()));
     }
 
+    private YouTubePlayer.PlaybackEventListener playbackListener = new YouTubePlayer.PlaybackEventListener() {
+
+        @Override
+        public void onPlaying() {
+            if((PUSH_BUTTON_APPEARANCES - pushButtonAppeared) != 0) {
+                pushButtonInterval = duration / (PUSH_BUTTON_APPEARANCES - pushButtonAppeared) - PUSH_BUTTON_DURATION;
+                if(fab2.getVisibility() == View.GONE) {
+                    wasPushed = true;
+                    disappearPush();
+                }
+                else {
+                    appearPush();
+                }
+            }
+        }
+
+        @Override
+        public void onPaused() {
+        }
+
+        @Override
+        public void onStopped() {
+            interval = null;
+            visible = null;
+        }
+
+        @Override
+        public void onBuffering(boolean b) {
+
+        }
+
+        @Override
+        public void onSeekTo(int i) {
+
+        }
+    };
+
     private YouTubePlayer.PlayerStateChangeListener playerStateChangeListener = new YouTubePlayer.PlayerStateChangeListener() {
 
         @Override
@@ -136,7 +222,7 @@ public class YoutubeFragment extends Fragment {
         @Override
         public void onLoaded(String arg0) {
             duration = youtubePlayer.getDurationMillis();
-            pushButtonInterval = duration/PUSH_BUTTON_APPEARANCES;
+            pushButtonInterval = duration/PUSH_BUTTON_APPEARANCES - PUSH_BUTTON_DURATION;
             disappearPush();
         }
 
@@ -146,8 +232,10 @@ public class YoutubeFragment extends Fragment {
 
         @Override
         public void onVideoEnded() {
-            fab.setVisibility(View.VISIBLE);
-            fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
+            if (fab.getVisibility() != View.VISIBLE) {
+                fab.setVisibility(View.VISIBLE);
+                fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
+            }
         }
 
         @Override
@@ -177,34 +265,66 @@ public class YoutubeFragment extends Fragment {
     }
 
     private void disappearPush() {
-        fab2.setVisibility(View.GONE);
-        fab2.animate().translationY(100).alpha(0.0f).setDuration(1000);
-        new CountDownTimer(pushButtonInterval, 1000) {
-
-            public void onTick(long millisUntilFinished) {
-            }
-
-            public void onFinish() {
-                if (fab2.getVisibility() == View.GONE) {
-                    appearPush();
+        if (fab2 != null) {
+            fab2.setVisibility(View.GONE);
+            fab2.animate().translationY(100).alpha(0.0f).setDuration(1000);
+            if(youtubePlayer.isPlaying() && interval != null && visible != null) {
+                if (wasPushed) {
+                    wasPushed = false;
+                }
+                else {
+                    watched = false;
+                    interval.cancel();
+                    visible.cancel();
+                    if (fab.getVisibility() != View.VISIBLE) {
+                        fab.setVisibility(View.VISIBLE);
+                        fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
+                    }
+                    Toast.makeText(getActivity(), "თქვენ არ დააჭირეთ ღილაკს. რეკლამა ნაყურებლად არ ჩაითვლება", Toast.LENGTH_LONG).show();
+                    return;
                 }
             }
-        }.start();
+            interval = new CountDownTimer(pushButtonInterval, 1000) {
+
+                public void onTick(long millisUntilFinished) {
+                    if(interval != null && visible != null && youtubePlayer != null && !youtubePlayer.isPlaying()) {
+                        duration -= youtubePlayer.getCurrentTimeMillis();
+                        interval.cancel();
+                        visible.cancel();
+
+                    }
+                }
+
+                public void onFinish() {
+                    if (fab2.getVisibility() == View.GONE) {
+                        appearPush();
+                    }
+                }
+            }.start();
+        }
     }
 
     private void appearPush() {
-        fab2.setVisibility(View.VISIBLE);
-        fab2.animate().translationY(0).alpha(1.0f).setDuration(1000);
-        new CountDownTimer(PUSH_BUTTON_DURATION, 1000) {
+        if (fab2 != null) {
+            fab2.setVisibility(View.VISIBLE);
+            pushButtonAppeared ++;
+            fab2.animate().translationY(0).alpha(1.0f).setDuration(1000);
+            visible = new CountDownTimer(PUSH_BUTTON_DURATION, 1000) {
 
-            public void onTick(long millisUntilFinished) {
-            }
-
-            public void onFinish() {
-                if (fab2.getVisibility() == View.VISIBLE) {
-                    disappearPush();
+                public void onTick(long millisUntilFinished) {
+                    if(youtubePlayer != null && !youtubePlayer.isPlaying() && interval != null && visible != null) {
+                        duration -= youtubePlayer.getCurrentTimeMillis();
+                        interval.cancel();
+                        visible.cancel();
+                    }
                 }
-            }
-        }.start();
+
+                public void onFinish() {
+                    if (fab2.getVisibility() == View.VISIBLE) {
+                        disappearPush();
+                    }
+                }
+            }.start();
+        }
     }
 }

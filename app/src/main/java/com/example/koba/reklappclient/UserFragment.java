@@ -49,6 +49,9 @@ public class UserFragment extends Fragment {
             }
         });
 
+        FloatingActionButton fab2 = (FloatingActionButton) getActivity().findViewById(R.id.fab2);
+        fab2.setVisibility(View.GONE);
+
         Bundle args = getArguments();
         User user = args.getParcelable("user");
         initTextViews(rootView, user);

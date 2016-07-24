@@ -3,8 +3,6 @@ package com.example.koba.reklappclient;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -68,7 +66,9 @@ public class MainActivity extends AppCompatActivity {
                     api.getUserByLogin(number.getText().toString(), hashPassword(passwordString), new Callback<User>() {
                         @Override
                         public void success(User user, Response response) {
-                            loading.dismiss();
+                            if ((loading != null) && loading.isShowing()) {
+                                loading.dismiss();
+                            }
                             if (user == null || user.mobile_number.compareTo("") == 0) {
                                 Toast.makeText(MainActivity.this, "მომხმარებელი აღნიშნული ნომრით და პაროლით ვერ მოიძებნა", Toast.LENGTH_SHORT).show();
                                 return;
@@ -119,11 +119,6 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return new String(md.digest(password.getBytes()));
-    }
-
-    private String invertDateString(String date) {
-        String[] parts = date.split("-");
-        return parts[2] + "-" + parts[1] + "-" + parts[0];
     }
 
     @Override

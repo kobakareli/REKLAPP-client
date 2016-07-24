@@ -111,15 +111,16 @@ public class SignUpActivity extends AppCompatActivity{
                                 startActivity(intent);
                                 finish();
                             }
-                            loading.dismiss();
-                            Toast.makeText(SignUpActivity.this, response.getProblem(), Toast.LENGTH_SHORT).show();
+                            else {
+                                loading.dismiss();
+                                Toast.makeText(SignUpActivity.this, response.getProblem(), Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                         @Override
                         public void failure(RetrofitError error) {
                             loading.dismiss();
                             error.printStackTrace();
-                            //System.out.println(ServerData.getString(error.getResponse())); //TODO fix sql date conversion here and in edit fragment
                         }
                     });
                 }
