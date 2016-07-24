@@ -1,6 +1,7 @@
 package com.example.koba.reklappclient;
 
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -8,7 +9,17 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.koba.reklappclient.RequestBodies.AddUserBody;
+import com.example.koba.reklappclient.RequestBodies.TransferRequestBody;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 /**
  * Created by Koba on 18/07/2016.
@@ -16,6 +27,7 @@ import android.widget.TextView;
 public class UserFragment extends Fragment {
 
     private TextView balance;
+    private Button transferMoney;
     private TextView name;
     private TextView surname;
     private TextView email;
@@ -32,7 +44,12 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.user_layout, container, false);
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
-        Drawable editIcon = getResources().getDrawable(R.drawable.ic_edit);
+        Drawable editIcon = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            editIcon = getResources().getDrawable(R.drawable.ic_edit, getContext().getTheme());
+        } else {
+            editIcon = getResources().getDrawable(R.drawable.ic_edit);
+        }
         fab.setImageDrawable(editIcon);
         fab.animate().translationX(0).alpha(1.0f).setDuration(0);
         fab.setVisibility(View.VISIBLE);
@@ -53,8 +70,39 @@ public class UserFragment extends Fragment {
         fab2.setVisibility(View.GONE);
 
         Bundle args = getArguments();
-        User user = args.getParcelable("user");
+        final User user = args.getParcelable("user");
         initTextViews(rootView, user);
+
+        transferMoney = (Button) rootView.findViewById(R.id.btn_transfer);
+        transferMoney.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RestAdapter adapter = new RestAdapter.Builder()
+                        .setEndpoint(RetroFitServer.URI)
+                        .build();
+                RetroFitServer api = adapter.create(RetroFitServer.class);
+                TransferRequestBody trb = new TransferRequestBody(user.money);
+                api.transferMoney(user.mobile_number, "self", trb, new Callback<AddUserBody>() {
+                    @Override
+                    public void success(AddUserBody addUserBody, Response response) {
+                        String problem = addUserBody.getProblem();
+                        if (problem.compareTo("Request completed.") == 0) {
+                            Toast.makeText(getActivity(), "გადარიცხვა დასრულებულია", Toast.LENGTH_SHORT).show();
+                            user.money = 0;
+                        }
+                        else {
+                            Toast.makeText(getActivity(), problem, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void failure(RetrofitError error) {
+                        error.printStackTrace();
+                    }
+                });
+            }
+        });
+
 
         return rootView;
     }

@@ -1,6 +1,7 @@
 package com.example.koba.reklappclient;
 
 import com.example.koba.reklappclient.RequestBodies.AddUserBody;
+import com.example.koba.reklappclient.RequestBodies.TransferRequestBody;
 
 import retrofit.Callback;
 import retrofit.client.Response;
@@ -26,7 +27,7 @@ public interface RetroFitServer {
     void addUser(@Body User user, Callback<AddUserBody> response);
 
     @POST("/webapi/users/{mobile_number}/transfer/{address}")
-    void transferMoney(@Path("mobile_number") String number, @Path("address") String address, Callback<Response> response);
+    void transferMoney(@Path("mobile_number") String number, @Path("address") String address, @Body TransferRequestBody body, Callback<AddUserBody> response);
 
     @GET("/webapi/users/{mobile_number}/advertisments/random")
     void getRandomAdvertisement(@Path("mobile_number") String number, Callback<Advertisement> response);
@@ -35,9 +36,9 @@ public interface RetroFitServer {
     void getUserByLogin(@Path("mobile_number") String number, @Path("password") String password, Callback<User> response);
 
     @POST("/webapi/ads/{ad_id}/view")
-    void increaseViewsLeft(@Path("ad_id") String adId);
+    void increaseViewsLeft(@Path("ad_id") int adId);
 
     @POST("/webapi/pairs/{pair_id}/date")
-    void updatePairDate(@Path("pair_id") String pairId);
+    void updatePairDate(@Path("pair_id") int pairId);
 
 }

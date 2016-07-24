@@ -2,6 +2,7 @@ package com.example.koba.reklappclient;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
@@ -94,8 +95,16 @@ public class YoutubeFragment extends Fragment {
     }
 
     private void updateVideo() {
+        if (getActivity() == null) {
+            return;
+        }
         fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
-        Drawable nextIcon = getResources().getDrawable(R.mipmap.ic_next);
+        Drawable nextIcon = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            nextIcon = getResources().getDrawable(R.mipmap.ic_next, getContext().getTheme());
+        } else {
+            nextIcon = getResources().getDrawable(R.mipmap.ic_next);
+        }
         fab.setImageDrawable(nextIcon);
         fab.setVisibility(View.GONE);
         fab.animate().translationX(100).alpha(0.0f);
@@ -109,6 +118,7 @@ public class YoutubeFragment extends Fragment {
                         public void success(AddUserBody response, Response response2) {
                             String problem = response.getProblem();
                             if(problem.compareTo("Update completed.") == 0) {
+                                api.updatePairDate(currentAd.getPairId());
                                 Fragment current = ((AppActivity) getActivity()).getFragmentById(1);
                                 FragmentManager manager = getActivity().getSupportFragmentManager();
                                 manager.beginTransaction()
@@ -118,6 +128,7 @@ public class YoutubeFragment extends Fragment {
                             }
                             else {
                                 user.money -= currentAd.getPrice();
+                                api.increaseViewsLeft(currentAd.getAdId());
                                 Toast.makeText(getActivity(), "სცადეთ თავიდან", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -152,7 +163,7 @@ public class YoutubeFragment extends Fragment {
                 if (!wasRestored) {
                     youtubePlayer = player;
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.MINIMAL);
-                    player.loadVideo(currentAd.getURL());
+                    player.loadVideo(videoId);
                 }
             }
 
@@ -178,11 +189,11 @@ public class YoutubeFragment extends Fragment {
         public void onPlaying() {
             if((PUSH_BUTTON_APPEARANCES - pushButtonAppeared) != 0) {
                 pushButtonInterval = duration / (PUSH_BUTTON_APPEARANCES - pushButtonAppeared) - PUSH_BUTTON_DURATION;
-                if(fab2.getVisibility() == View.GONE) {
+                if(fab2.getVisibility() == View.GONE && visible != null) {
                     wasPushed = true;
                     disappearPush();
                 }
-                else {
+                else if (fab2.getVisibility() == View.VISIBLE) {
                     appearPush();
                 }
             }
@@ -190,6 +201,11 @@ public class YoutubeFragment extends Fragment {
 
         @Override
         public void onPaused() {
+            if(interval != null && visible != null) {
+                duration -= youtubePlayer.getCurrentTimeMillis();
+                interval.cancel();
+                visible.cancel();
+            }
         }
 
         @Override
@@ -247,13 +263,13 @@ public class YoutubeFragment extends Fragment {
         api.getRandomAdvertisement(userNumber, new Callback<Advertisement>() {
             @Override
             public void success(Advertisement advertisement, Response response) {
-                if(advertisement != null && advertisement.getURL() != null && advertisement.getURL().length() != 0) {
+                //if(advertisement != null && advertisement.getURL() != null && advertisement.getURL().length() != 0) {
                     currentAd = advertisement;
                     updateVideo();
-                    updateTexts();
+                    //updateTexts();
                     return;
-                }
-                Toast.makeText(getActivity(), advertisement.getStatus(), Toast.LENGTH_SHORT).show();
+                //}
+                //Toast.makeText(getActivity(), advertisement.getStatus(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -268,7 +284,7 @@ public class YoutubeFragment extends Fragment {
         if (fab2 != null) {
             fab2.setVisibility(View.GONE);
             fab2.animate().translationY(100).alpha(0.0f).setDuration(1000);
-            if(youtubePlayer.isPlaying() && interval != null && visible != null) {
+            if(interval != null && visible != null) {
                 if (wasPushed) {
                     wasPushed = false;
                 }
@@ -280,19 +296,19 @@ public class YoutubeFragment extends Fragment {
                         fab.setVisibility(View.VISIBLE);
                         fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
                     }
-                    Toast.makeText(getActivity(), "თქვენ არ დააჭირეთ ღილაკს. რეკლამა ნაყურებლად არ ჩაითვლება", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity(), "თქვენ არ დააჭირეთ ღილაკს. რეკლამა ნაყურებლად არ ჩაითვლება", Toast.LENGTH_LONG).show();
                     return;
                 }
             }
             interval = new CountDownTimer(pushButtonInterval, 1000) {
 
                 public void onTick(long millisUntilFinished) {
-                    if(interval != null && visible != null && youtubePlayer != null && !youtubePlayer.isPlaying()) {
+                    /*if(interval != null && visible != null && youtubePlayer != null && !youtubePlayer.isPlaying()) {
                         duration -= youtubePlayer.getCurrentTimeMillis();
                         interval.cancel();
                         visible.cancel();
 
-                    }
+                    }*/
                 }
 
                 public void onFinish() {
@@ -312,11 +328,11 @@ public class YoutubeFragment extends Fragment {
             visible = new CountDownTimer(PUSH_BUTTON_DURATION, 1000) {
 
                 public void onTick(long millisUntilFinished) {
-                    if(youtubePlayer != null && !youtubePlayer.isPlaying() && interval != null && visible != null) {
+                    /*if(youtubePlayer != null && !youtubePlayer.isPlaying() && interval != null && visible != null) {
                         duration -= youtubePlayer.getCurrentTimeMillis();
                         interval.cancel();
                         visible.cancel();
-                    }
+                    }*/
                 }
 
                 public void onFinish() {
@@ -326,5 +342,16 @@ public class YoutubeFragment extends Fragment {
                 }
             }.start();
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if(interval != null && visible != null) {
+            interval.cancel(); interval = null;
+            visible.cancel(); visible = null;
+
+        }
+
     }
 }

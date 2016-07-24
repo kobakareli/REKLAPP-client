@@ -59,16 +59,18 @@ public class AppActivity extends AppCompatActivity {
 
         mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
             @Override public void onItemClick(View view, int position) {
-                currentFragmentId = position;
-                FragmentManager manager = getSupportFragmentManager();
-                Fragment fragment = getFragmentById(position);
+                if (currentFragmentId != position) {
+                    currentFragmentId = position;
+                    FragmentManager manager = getSupportFragmentManager();
+                    Fragment fragment = getFragmentById(position);
 
-                if (fragment != null) {
-                    manager.beginTransaction()
-                            .replace(R.id.flContent, fragment)
-                            .addToBackStack(null)
-                            .commit();
-                    drawer.closeDrawer(Gravity.LEFT);
+                    if (fragment != null) {
+                        manager.beginTransaction()
+                                .replace(R.id.flContent, fragment)
+                                .addToBackStack(null)
+                                .commit();
+                        drawer.closeDrawer(Gravity.LEFT);
+                    }
                 }
             }
         }));
