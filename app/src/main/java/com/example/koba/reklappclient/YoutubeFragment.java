@@ -118,13 +118,6 @@ public class YoutubeFragment extends Fragment {
             return;
         }
         fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-        Drawable nextIcon = null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            nextIcon = getResources().getDrawable(R.mipmap.ic_next, getContext().getTheme());
-        } else {
-            nextIcon = getResources().getDrawable(R.mipmap.ic_next);
-        }
-        fab.setImageDrawable(nextIcon);
         fab.setVisibility(View.GONE);
         fab.animate().translationX(100).alpha(0.0f);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -230,19 +223,30 @@ public class YoutubeFragment extends Fragment {
             if((PUSH_BUTTON_APPEARANCES - pushButtonAppeared) != 0) {
                 pushButtonInterval = duration / (PUSH_BUTTON_APPEARANCES - pushButtonAppeared) - PUSH_BUTTON_DURATION;
                 if(fab2.getVisibility() == View.GONE && interval != null) {
-                    wasPushed = true;
                     isIntervalCanceled = false;
-                    disappearPush();
-                }
-                if (fab2.getVisibility() == View.VISIBLE && visible != null) {
                     isVisibleCanceled = false;
-                    appearPush();
+                    disappearPush(false);
+                }
+                if (fab2.getVisibility() == View.VISIBLE) {
+                    isVisibleCanceled = false;
+                    isIntervalCanceled = false;
+                    appearPush(false);
+                }
+            }
+            else {
+                if (fab2.getVisibility() == View.VISIBLE) {
+                    isVisibleCanceled = false;
+                    isIntervalCanceled = false;
+                    appearPush(true);
                 }
             }
         }
 
         @Override
         public void onPaused() {
+            if(fab2.getVisibility() == View.GONE) {
+                wasPushed = true;
+            }
             if(interval != null) {
                 duration -= youtubePlayer.getCurrentTimeMillis();
                 interval.cancel();
@@ -264,8 +268,6 @@ public class YoutubeFragment extends Fragment {
                 visible.cancel();
                 isVisibleCanceled = true;
             }
-            interval = null;
-            visible = null;
         }
 
         @Override
@@ -294,17 +296,17 @@ public class YoutubeFragment extends Fragment {
             duration = youtubePlayer.getDurationMillis();
             if (duration >= 60000) {
                 pushButtonInterval = duration/PUSH_BUTTON_APPEARANCES - PUSH_BUTTON_DURATION;
-                disappearPush();
+                disappearPush(false);
             }
             else if(duration < 60000 && duration >= 30000) {
                 PUSH_BUTTON_APPEARANCES = 3;
                 pushButtonInterval = duration/PUSH_BUTTON_APPEARANCES - PUSH_BUTTON_DURATION;
-                disappearPush();
+                disappearPush(false);
             }
             else if(duration < 30000 && duration >= 10000) {
                 PUSH_BUTTON_APPEARANCES = 1;
                 pushButtonInterval = (int)(duration/(1.25*PUSH_BUTTON_APPEARANCES)) - PUSH_BUTTON_DURATION;
-                disappearPush();
+                disappearPush(false);
             }
         }
 
@@ -349,7 +351,7 @@ public class YoutubeFragment extends Fragment {
         });
     }
 
-    private void disappearPush() {
+    private void disappearPush(final boolean last) {
         if (fab2 != null) {
             fab2.setVisibility(View.GONE);
             fab2.animate().translationY(100).alpha(0.0f).setDuration(1000);
@@ -374,6 +376,10 @@ public class YoutubeFragment extends Fragment {
                     return;
                 }
             }
+            wasPushed = false;
+            if (last) {
+                return;
+            }
             interval = new CountDownTimer(pushButtonInterval, 1000) {
 
                 public void onTick(long millisUntilFinished) {
@@ -381,14 +387,14 @@ public class YoutubeFragment extends Fragment {
 
                 public void onFinish() {
                     if (!isIntervalCanceled && fab2 != null && fab2.getVisibility() == View.GONE) {
-                        appearPush();
+                        appearPush(last);
                     }
                 }
             }.start();
         }
     }
 
-    private void appearPush() {
+    private void appearPush(final boolean last) {
         if (fab2 != null) {
             fab2.setVisibility(View.VISIBLE);
             pushButtonAppeared ++;
@@ -400,7 +406,7 @@ public class YoutubeFragment extends Fragment {
 
                 public void onFinish() {
                     if (!isVisibleCanceled && fab2 != null && fab2.getVisibility() == View.VISIBLE) {
-                        disappearPush();
+                        disappearPush(last);
                     }
                 }
             }.start();

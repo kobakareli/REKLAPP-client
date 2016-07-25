@@ -53,15 +53,6 @@ public class UserFragment extends Fragment {
 
         Bundle args = getArguments();
         final User user = args.getParcelable("user");
-
-        /*Drawable editIcon = null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            editIcon = getResources().getDrawable(R.drawable.ic_edit, getContext().getTheme());
-        } else {
-            editIcon = getResources().getDrawable(R.drawable.ic_edit);
-        }
-        fab.setImageDrawable(editIcon);
-        fab.animate().translationX(0).alpha(1.0f).setDuration(0);*/
         fab.setVisibility(View.VISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
