@@ -10,9 +10,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="12dp"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
+        android:paddingTop="@dimen/short_layout_padding_top"
+        android:paddingLeft="@dimen/layout_padding_left"
+        android:paddingRight="@dimen/layout_padding_right"
         android:background="@color/backgroundColor">
 
         <android.support.design.widget.TextInputLayout

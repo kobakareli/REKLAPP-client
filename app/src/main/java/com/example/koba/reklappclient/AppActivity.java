@@ -1,13 +1,8 @@
 package com.example.koba.reklappclient;
 
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,18 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Koba on 16/07/2016.
  */
 public class AppActivity extends AppCompatActivity {
 
-    public static int currentFragmentId = 1;
+    public static int currentFragmentId;
     private String TITLES[] = {"მთავარი","ინფო","მომხმარებლის გვერდი"};
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -47,6 +38,8 @@ public class AppActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        currentFragmentId = GlobalVariables.YOUTUBE_FRAGMENT_ID;
+
         if (getIntent().hasExtra("user")) {
             user = getIntent().getParcelableExtra("user");
         }
@@ -62,16 +55,16 @@ public class AppActivity extends AppCompatActivity {
                 if (currentFragmentId != position) {
                     currentFragmentId = position;
                     FragmentManager manager = getSupportFragmentManager();
-                    Fragment fragment = getFragmentById(position);
+                    Fragment fragment = getFragmentById(position, user);
 
                     if (fragment != null) {
                         manager.beginTransaction()
                                 .replace(R.id.flContent, fragment)
                                 .addToBackStack(null)
                                 .commit();
-                        drawer.closeDrawer(Gravity.LEFT);
                     }
                 }
+                drawer.closeDrawer(Gravity.LEFT);
             }
         }));
 
@@ -100,7 +93,7 @@ public class AppActivity extends AppCompatActivity {
         mDrawerToggle.syncState();
 
 
-        Fragment current = getFragmentById(currentFragmentId);
+        Fragment current = getFragmentById(currentFragmentId, user);
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.flContent, current)
@@ -130,18 +123,18 @@ public class AppActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public Fragment getFragmentById(int id) {
+    public Fragment getFragmentById(int id, User user) {
         Fragment f = null;
-        if (id == 1) {
+        if (id == GlobalVariables.YOUTUBE_FRAGMENT_ID) {
             f = new YoutubeFragment();
         }
-        else if(id == 2) {
+        else if(id == GlobalVariables.INFO_FRAGMENT_ID) {
             f = new InfoFragment();
         }
-        else if(id == 3) {
+        else if(id == GlobalVariables.USER_FRAGMENT_ID) {
             f = new UserFragment();
         }
-        else if(id == 4) {
+        else if(id == GlobalVariables.USER_EDIT_FRAGMENT_ID) {
             f = new UserEditFragment();
         }
         if(f != null) {

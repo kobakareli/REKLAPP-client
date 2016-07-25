@@ -46,9 +46,6 @@ import retrofit.client.Response;
  */
 public class SignUpActivity extends AppCompatActivity{
 
-    private final int NUMBER_LENGTH = 9;
-    private final int ID_LENGTH = 11;
-
     private TextView signin;
     private TextInputEditText birthDate;
     private Spinner cities;
@@ -99,12 +96,12 @@ public class SignUpActivity extends AppCompatActivity{
                             .setEndpoint(RetroFitServer.URI)
                             .build();
                     RetroFitServer api = adapter.create(RetroFitServer.class);
-                    final User user = new User(nameString, surnameString, hashPassword(passwordString), idString, "საქართველო", city, addressString,
+                    final User user = new User(nameString, surnameString, MainActivity.hashPassword(passwordString), idString, "საქართველო", city, addressString,
                             numberString, gender, birthdateString, relationship, emailString, "", Integer.parseInt(numberOfChildrenString), Integer.parseInt(incomeString), 0.0);
                     api.addUser(user, new Callback<AddUserBody>() {
                         @Override
                         public void success(AddUserBody response, Response response2) {
-                            if (response != null && response.getProblem().compareTo("Update completed.") == 0) {
+                            if (response != null && response.getProblem().compareTo(getResources().getString(R.string.success_status)) == 0) {
                                 loading.dismiss();
                                 Intent intent = new Intent(SignUpActivity.this, AppActivity.class);
                                 intent.putExtra("user", user);
@@ -123,6 +120,9 @@ public class SignUpActivity extends AppCompatActivity{
                             error.printStackTrace();
                         }
                     });
+                }
+                else {
+                    loading.dismiss();
                 }
             }
         });
@@ -238,12 +238,12 @@ public class SignUpActivity extends AppCompatActivity{
             this.income.setError(getResources().getString(R.string.empty_field_error));
             status = false;
         }
-        if(id.length() != ID_LENGTH) {
-            this.id.setError(getResources().getString(R.string.length_error) + ID_LENGTH);
+        if(id.length() != GlobalVariables.ID_LENGTH) {
+            this.id.setError(getResources().getString(R.string.length_error) + GlobalVariables.ID_LENGTH);
             status = false;
         }
-        if(number.length() != NUMBER_LENGTH) {
-            this.number.setError(getResources().getString(R.string.length_error) + NUMBER_LENGTH);
+        if(number.length() != GlobalVariables.NUMBER_LENGTH) {
+            this.number.setError(getResources().getString(R.string.length_error) + GlobalVariables.NUMBER_LENGTH);
             status = false;
         }
         for(int i = 0; i < number.length(); i++) {
@@ -298,17 +298,6 @@ public class SignUpActivity extends AppCompatActivity{
             isValid = true;
         }
         return isValid;
-    }
-
-    public static String hashPassword(String password) {
-        MessageDigest md = null;
-        try {
-            md = MessageDigest.getInstance("SHA-1");
-        }
-        catch(NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return new String(md.digest(password.getBytes()));
     }
 
     @Override

@@ -36,9 +36,6 @@ import retrofit.client.Response;
  */
 public class UserEditFragment extends Fragment {
 
-    private final int ID_LENGTH = 11;
-    private final int NUMBER_LENGTH = 9;
-
     private TextInputEditText birthDate;
     private Spinner cities;
     private Spinner genders;
@@ -214,12 +211,12 @@ public class UserEditFragment extends Fragment {
             this.income.setError(getResources().getString(R.string.empty_field_error));
             status = false;
         }
-        if(id.length() != ID_LENGTH) {
-            this.id.setError(getResources().getString(R.string.empty_field_error));
+        if(id.length() != GlobalVariables.ID_LENGTH) {
+            this.id.setError(getResources().getString(R.string.length_error) + GlobalVariables.ID_LENGTH);
             status = false;
         }
-        if(number.length() != NUMBER_LENGTH) {
-            this.number.setError(getResources().getString(R.string.length_error) + NUMBER_LENGTH);
+        if(number.length() != GlobalVariables.NUMBER_LENGTH) {
+            this.number.setError(getResources().getString(R.string.length_error) + GlobalVariables.NUMBER_LENGTH);
             status = false;
         }
         for(int i = 0; i < number.length(); i++) {
@@ -289,14 +286,14 @@ public class UserEditFragment extends Fragment {
                     .setEndpoint(RetroFitServer.URI)
                     .build();
             RetroFitServer api = adapter.create(RetroFitServer.class);
-            final User newUser = new User(nameString, surnameString, user.password, idString, "საქართველო", city, addressString,
+            final User newUser = new User(nameString, surnameString, user.password, idString, getResources().getString(R.string.country), city, addressString,
                     numberString, gender, birthdateString, relationship, emailString, user.mobile_number, Integer.parseInt(numberOfChildrenString), Integer.parseInt(incomeString), user.money);
             api.addUser(newUser, new Callback<AddUserBody>() {
                 @Override
                 public void success(AddUserBody response, Response response2) {
                     loading.dismiss();
                     String problem = response.getProblem();
-                    if(problem.compareTo("Update completed.") == 0) {
+                    if(problem.compareTo(getResources().getString(R.string.success_status)) == 0) {
                         Intent intent = new Intent(getActivity(), AppActivity.class);
                         intent.putExtra("user", newUser);
                         startActivity(intent);

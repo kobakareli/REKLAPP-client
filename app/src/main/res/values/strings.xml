@@ -27,4 +27,7 @@
     <string name="relationship_error">აირჩიეთ ოჯახური მდგომარეობა</string>
     <string name="gender_error">აირჩიეთ სქესი</string>
     <string name="password_length_error">პაროლის სიგრძე უნდა იყოს მინიმუმ 6, მაქსიმუმ 20</string>
+    <string name="success_status">Update completed.</string>
+    <string name="transfer_success_status">Transfer completed.</string>
+    <string name="country">საქართველო</string>
 </resources>

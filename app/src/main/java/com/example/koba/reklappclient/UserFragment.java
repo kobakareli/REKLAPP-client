@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,10 @@ public class UserFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.user_layout, container, false);
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+
+        Bundle args = getArguments();
+        final User user = args.getParcelable("user");
+
         Drawable editIcon = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             editIcon = getResources().getDrawable(R.drawable.ic_edit, getContext().getTheme());
@@ -56,8 +61,8 @@ public class UserFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppActivity.currentFragmentId = 4;
-                Fragment newFragment = ((AppActivity) getActivity()).getFragmentById(AppActivity.currentFragmentId);
+                AppActivity.currentFragmentId = GlobalVariables.USER_EDIT_FRAGMENT_ID;
+                Fragment newFragment = ((AppActivity) getActivity()).getFragmentById(AppActivity.currentFragmentId, user);
                 FragmentManager manager = getActivity().getSupportFragmentManager();
                 manager.beginTransaction()
                         .replace(R.id.flContent, newFragment)
@@ -69,8 +74,6 @@ public class UserFragment extends Fragment {
         FloatingActionButton fab2 = (FloatingActionButton) getActivity().findViewById(R.id.fab2);
         fab2.setVisibility(View.GONE);
 
-        Bundle args = getArguments();
-        final User user = args.getParcelable("user");
         initTextViews(rootView, user);
 
         transferMoney = (Button) rootView.findViewById(R.id.btn_transfer);
@@ -82,11 +85,11 @@ public class UserFragment extends Fragment {
                         .build();
                 RetroFitServer api = adapter.create(RetroFitServer.class);
                 TransferRequestBody trb = new TransferRequestBody(user.money);
-                api.transferMoney(user.mobile_number, "self", trb, new Callback<AddUserBody>() {
+                api.transferMoney(user.mobile_number, user.email, trb, new Callback<AddUserBody>() { //TODO coinbase mail
                     @Override
                     public void success(AddUserBody addUserBody, Response response) {
                         String problem = addUserBody.getProblem();
-                        if (problem.compareTo("Request completed.") == 0) {
+                        if (problem.compareTo(getResources().getString(R.string.transfer_success_status)) == 0) {
                             Toast.makeText(getActivity(), "გადარიცხვა დასრულებულია", Toast.LENGTH_SHORT).show();
                             user.money = 0;
                         }
@@ -109,28 +112,28 @@ public class UserFragment extends Fragment {
 
     private void initTextViews(View rootView, User user) {
         balance = (TextView) rootView.findViewById(R.id.balance);
-        balance.setText("ანგარიში: " + user.money);
+        balance.setText(Html.fromHtml("<b>ანგარიში:<b> " + user.money));
         name = (TextView) rootView.findViewById(R.id.name);
-        name.setText("სახელი: " + user.name);
+        name.setText(Html.fromHtml("<b>სახელი:<b> " + user.name));
         surname = (TextView) rootView.findViewById(R.id.surname);
-        surname.setText("გვარი: " + user.surname);
+        surname.setText(Html.fromHtml("<b>გვარი:<b> " + user.surname));
         email = (TextView) rootView.findViewById(R.id.email);
-        email.setText("ელ. ფოსტა: " + user.email);
+        email.setText(Html.fromHtml("<b>ელ. ფოსტა:<b> " + user.email));
         id = (TextView) rootView.findViewById(R.id.pid);
-        id.setText("პირადი ნომერი: " + user.pin);
+        id.setText(Html.fromHtml("<b>პირადი ნომერი:<b> " + user.pin));
         city = (TextView) rootView.findViewById(R.id.city);
-        city.setText("ქალაქი: " + user.city);
+        city.setText(Html.fromHtml("<b>ქალაქი:<b> " + user.city));
         address = (TextView) rootView.findViewById(R.id.address);
-        address.setText("მისამართი: " + user.street_address);
+        address.setText(Html.fromHtml("<b>მისამართი:<b> " + user.street_address));
         sex = (TextView) rootView.findViewById(R.id.sex);
-        sex.setText("სქესი: " + user.sex);
+        sex.setText(Html.fromHtml("<b>სქესი:<b> " + user.sex));
         birthdate = (TextView) rootView.findViewById(R.id.birthdate);
-        birthdate.setText("დაბადების თარიღი: " + user.birthdate);
+        birthdate.setText(Html.fromHtml("<b>დაბადების თარიღი:<b> " + user.birthdate));
         relationship = (TextView) rootView.findViewById(R.id.relationship);
-        relationship.setText("ოჯახური მდგომარეობა: " + user.relationship);
+        relationship.setText(Html.fromHtml("<b>ოჯახური მდგომარეობა:<b> " + user.relationship));
         numberOfChildren = (TextView) rootView.findViewById(R.id.numChildren);
-        numberOfChildren.setText("შვილების რაოდენობა: " + Integer.toString(user.number_of_children));
+        numberOfChildren.setText(Html.fromHtml("<b>შვილების რაოდენობა:<b> " + Integer.toString(user.number_of_children)));
         averageIncome = (TextView) rootView.findViewById(R.id.income);
-        averageIncome.setText("საშუალო თვიური შემოსავალი: " + Integer.toString(user.average_monthly_income));
+        averageIncome.setText(Html.fromHtml("<b>საშუალო თვიური შემოსავალი:<b> " + Integer.toString(user.average_monthly_income)));
     }
 }

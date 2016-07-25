@@ -10,11 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.json.JSONObject;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -25,8 +22,6 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 public class MainActivity extends AppCompatActivity {
-
-    private final int NUMBER_LENGTH = 9;
 
     private TextView signup;
     private TextInputEditText number;
@@ -86,31 +81,34 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
+                else {
+                    loading.dismiss();
+                }
             }
         });
     }
 
     private boolean isInputValid(String numberString, String passwordString) {
         boolean status = true;
-        if (numberString.length() != NUMBER_LENGTH) {
-            this.number.setError("სიგრძე უნდა იყოს " + NUMBER_LENGTH);
+        if (numberString.length() != GlobalVariables.NUMBER_LENGTH) {
+            this.number.setError(getResources().getString(R.string.length_error) + GlobalVariables.NUMBER_LENGTH);
             status = false;
         }
         for(int i = 0; i < numberString.length(); i++) {
             char c = numberString.charAt(i);
             if (!Character.isDigit(c)) {
-                this.number.setError("შეიყვანეთ მხოლოდ ციფრები");
+                this.number.setError(getResources().getString(R.string.number_error));
                 status = false;
             }
         }
         if (passwordString.length() == 0) {
-            this.password.setError("პაროლი არაა შეყვანილი");
+            this.password.setError(getResources().getString(R.string.empty_field_error));
             status = false;
         }
         return status;
     }
 
-    private String hashPassword(String password) {
+    public static String hashPassword(String password) {
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("SHA-1");

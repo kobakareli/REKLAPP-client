@@ -1,5 +1,6 @@
 package com.example.koba.reklappclient;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.koba.reklappclient.RequestBodies.AddUserBody;
+import com.example.koba.reklappclient.RequestBodies.TransferRequestBody;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -112,24 +114,21 @@ public class YoutubeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (watched) {
-                    user.money += currentAd.getPrice();
-                    api.addUser(user, new Callback<AddUserBody>() {
+                    TransferRequestBody trb = new TransferRequestBody(user.money);
+                    api.transferMoney(user.mobile_number, "self", trb, new Callback<AddUserBody>() {
                         @Override
-                        public void success(AddUserBody response, Response response2) {
-                            String problem = response.getProblem();
-                            if(problem.compareTo("Update completed.") == 0) {
-                                api.updatePairDate(currentAd.getPairId());
-                                Fragment current = ((AppActivity) getActivity()).getFragmentById(1);
+                        public void success(AddUserBody addUserBody, Response response) {
+                            String problem = addUserBody.getProblem();
+                            if (problem.compareTo(getResources().getString(R.string.transfer_success_status)) == 0) {
+                                user.money += currentAd.getPrice();
+                                Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
                                 FragmentManager manager = getActivity().getSupportFragmentManager();
                                 manager.beginTransaction()
                                         .replace(R.id.flContent, current)
                                         .addToBackStack(null)
                                         .commit();
-                            }
-                            else {
-                                user.money -= currentAd.getPrice();
-                                api.increaseViewsLeft(currentAd.getAdId());
-                                Toast.makeText(getActivity(), "სცადეთ თავიდან", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getActivity(), problem, Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -140,7 +139,7 @@ public class YoutubeFragment extends Fragment {
                     });
                 }
                 else {
-                    Fragment current = ((AppActivity) getActivity()).getFragmentById(1);
+                    Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
                     FragmentManager manager = getActivity().getSupportFragmentManager();
                     manager.beginTransaction()
                             .replace(R.id.flContent, current)
@@ -163,7 +162,7 @@ public class YoutubeFragment extends Fragment {
                 if (!wasRestored) {
                     youtubePlayer = player;
                     player.setPlayerStyle(YouTubePlayer.PlayerStyle.MINIMAL);
-                    player.loadVideo(videoId);
+                    player.loadVideo(currentAd.getURL());
                 }
             }
 
@@ -263,18 +262,17 @@ public class YoutubeFragment extends Fragment {
         api.getRandomAdvertisement(userNumber, new Callback<Advertisement>() {
             @Override
             public void success(Advertisement advertisement, Response response) {
-                //if(advertisement != null && advertisement.getURL() != null && advertisement.getURL().length() != 0) {
+                if(advertisement != null && advertisement.getURL() != null && advertisement.getURL().length() != 0) {
                     currentAd = advertisement;
                     updateVideo();
-                    //updateTexts();
+                    updateTexts();
                     return;
-                //}
-                //Toast.makeText(getActivity(), advertisement.getStatus(), Toast.LENGTH_SHORT).show();
+                }
+                Toast.makeText(getActivity(), advertisement.getStatus(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void failure(RetrofitError error) {
-
                 error.printStackTrace();
             }
         });
@@ -296,19 +294,16 @@ public class YoutubeFragment extends Fragment {
                         fab.setVisibility(View.VISIBLE);
                         fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
                     }
-                    //Toast.makeText(getActivity(), "თქვენ არ დააჭირეთ ღილაკს. რეკლამა ნაყურებლად არ ჩაითვლება", Toast.LENGTH_LONG).show();
+                    Activity activity = getActivity();
+                    if (activity != null) {
+                        Toast.makeText(activity, "თქვენ არ დააჭირეთ ღილაკს. რეკლამა ნაყურებლად არ ჩაითვლება", Toast.LENGTH_LONG).show();
+                    }
                     return;
                 }
             }
             interval = new CountDownTimer(pushButtonInterval, 1000) {
 
                 public void onTick(long millisUntilFinished) {
-                    /*if(interval != null && visible != null && youtubePlayer != null && !youtubePlayer.isPlaying()) {
-                        duration -= youtubePlayer.getCurrentTimeMillis();
-                        interval.cancel();
-                        visible.cancel();
-
-                    }*/
                 }
 
                 public void onFinish() {
@@ -328,11 +323,6 @@ public class YoutubeFragment extends Fragment {
             visible = new CountDownTimer(PUSH_BUTTON_DURATION, 1000) {
 
                 public void onTick(long millisUntilFinished) {
-                    /*if(youtubePlayer != null && !youtubePlayer.isPlaying() && interval != null && visible != null) {
-                        duration -= youtubePlayer.getCurrentTimeMillis();
-                        interval.cancel();
-                        visible.cancel();
-                    }*/
                 }
 
                 public void onFinish() {
