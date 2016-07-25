@@ -131,15 +131,19 @@ public class YoutubeFragment extends Fragment {
                             videoCount ++;
                             prefs.edit().putInt("videoCount", videoCount).commit();
                             String problem = addUserBody.getProblem();
+                            AddUserBody aub = new AddUserBody("bla");
                             if (problem.compareTo(getResources().getString(R.string.transfer_success_status)) == 0) {
                                 user.money += currentAd.getPrice();
-                                api.updatePairDate(currentAd.getPairId(), new Callback<AddUserBody>() {
+                                api.updatePairDate(currentAd.getPairId(), aub, new Callback<AddUserBody>() {
                                     @Override
                                     public void success(AddUserBody addUserBody, Response response) {
+                                        String problem = addUserBody.getProblem();
                                     }
 
                                     @Override
                                     public void failure(RetrofitError error) {
+                                        String str = new String(error.getResponse().getBody().mimeType());
+                                        error.printStackTrace();
                                     }
                                 });
                                 Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
@@ -160,7 +164,8 @@ public class YoutubeFragment extends Fragment {
                     });
                 }
                 else {
-                    api.increaseViewsLeft(currentAd.getAdId(), new Callback<AddUserBody>() {
+                    AddUserBody aub = new AddUserBody("bla");
+                    api.increaseViewsLeft(currentAd.getAdId(), aub, new Callback<AddUserBody>() {
                         @Override
                         public void success(AddUserBody addUserBody, Response response) {
 
@@ -168,7 +173,7 @@ public class YoutubeFragment extends Fragment {
 
                         @Override
                         public void failure(RetrofitError error) {
-
+                            error.printStackTrace();
                         }
                     });
                     Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
@@ -360,6 +365,7 @@ public class YoutubeFragment extends Fragment {
                     wasPushed = false;
                 }
                 else {
+                    wasPushed = false;
                     watched = false;
                     interval.cancel();
                     visible.cancel();

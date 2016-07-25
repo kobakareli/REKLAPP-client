@@ -6,6 +6,8 @@ import com.example.koba.reklappclient.RequestBodies.TransferRequestBody;
 import retrofit.Callback;
 import retrofit.client.Response;
 import retrofit.http.Body;
+import retrofit.http.Field;
+import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.Headers;
 import retrofit.http.POST;
@@ -36,9 +38,9 @@ public interface RetroFitServer {
     void getUserByLogin(@Path("mobile_number") String number, @Path("password") String password, Callback<User> response);
 
     @POST("/webapi/ads/{ad_id}/view")
-    void increaseViewsLeft(@Path("ad_id") int adId, Callback<AddUserBody> response);
+    void increaseViewsLeft(@Path("ad_id") int adId, @Body AddUserBody body, Callback<AddUserBody> response);
 
     @POST("/webapi/pairs/{pair_id}/date")
-    void updatePairDate(@Path("pair_id") int pairId, Callback<AddUserBody> response);
+    void updatePairDate(@Path("pair_id") int pairId, @Body AddUserBody body, Callback<AddUserBody> response);
 
 }
