@@ -8,6 +8,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,19 +49,19 @@ public class UserFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.user_layout, container, false);
-        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        AppCompatButton fab = (AppCompatButton) rootView.findViewById(R.id.fab);
 
         Bundle args = getArguments();
         final User user = args.getParcelable("user");
 
-        Drawable editIcon = null;
+        /*Drawable editIcon = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             editIcon = getResources().getDrawable(R.drawable.ic_edit, getContext().getTheme());
         } else {
             editIcon = getResources().getDrawable(R.drawable.ic_edit);
         }
         fab.setImageDrawable(editIcon);
-        fab.animate().translationX(0).alpha(1.0f).setDuration(0);
+        fab.animate().translationX(0).alpha(1.0f).setDuration(0);*/
         fab.setVisibility(View.VISIBLE);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,9 +75,6 @@ public class UserFragment extends Fragment {
                         .commit();
             }
         });
-
-        FloatingActionButton fab2 = (FloatingActionButton) getActivity().findViewById(R.id.fab2);
-        fab2.setVisibility(View.GONE);
 
         initTextViews(rootView, user);
 

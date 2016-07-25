@@ -54,7 +54,7 @@ public class YoutubeFragment extends Fragment {
     private TextView description;
 
     private YouTubePlayer youtubePlayer;
-    private int duration; // current video duration in seconds
+    private int duration;
     private int pushButtonInterval;
     private int pushButtonAppeared = 0;
     private boolean wasPushed = false;
@@ -85,7 +85,7 @@ public class YoutubeFragment extends Fragment {
         user = args.getParcelable("user");
         userNumber = user.mobile_number;
 
-        fab2 = (FloatingActionButton) getActivity().findViewById(R.id.fab2);
+        fab2 = (FloatingActionButton) rootView.findViewById(R.id.fab2);
         fab2.setVisibility(View.GONE);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,18 +103,19 @@ public class YoutubeFragment extends Fragment {
                 .setEndpoint(RetroFitServer.URI)
                 .build();
         api = adapter.create(RetroFitServer.class);
-        
-        getNextAd();
+
+        videoId = "j5-yKhDd64s";
+        getNextAd(rootView);
 
 
         return rootView;
     }
 
-    private void updateVideo() {
+    private void updateVideo(View rootView) {
         if (getActivity() == null) {
             return;
         }
-        fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
         Drawable nextIcon = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             nextIcon = getResources().getDrawable(R.mipmap.ic_next, getContext().getTheme());
@@ -204,6 +205,8 @@ public class YoutubeFragment extends Fragment {
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
+                fab.setVisibility(View.VISIBLE);
+                fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
                 String errorMessage = error.toString();
                 Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
                 Log.d("errorMessage:", errorMessage);
@@ -282,6 +285,11 @@ public class YoutubeFragment extends Fragment {
                 pushButtonInterval = duration/PUSH_BUTTON_APPEARANCES - PUSH_BUTTON_DURATION;
                 disappearPush();
             }
+            else if(duration < 30000 && duration >= 10000) {
+                PUSH_BUTTON_APPEARANCES = 1;
+                pushButtonInterval = (int)(duration/(1.25*PUSH_BUTTON_APPEARANCES)) - PUSH_BUTTON_DURATION;
+                disappearPush();
+            }
         }
 
         @Override
@@ -301,7 +309,7 @@ public class YoutubeFragment extends Fragment {
         }
     };
 
-    private void getNextAd() {
+    private void getNextAd(final View rootView) {
         if (videoCount >= GlobalVariables.USER_DAILY_LIMIT) {
             Toast.makeText(getActivity(), "თქვენ უკვე გადააჭარბეთ დღიურ ლიმიტს", Toast.LENGTH_SHORT).show();
             return;
@@ -311,7 +319,7 @@ public class YoutubeFragment extends Fragment {
             public void success(Advertisement advertisement, Response response) {
                 if(advertisement != null && advertisement.getURL() != null && advertisement.getURL().length() != 0) {
                     currentAd = advertisement;
-                    updateVideo();
+                    updateVideo(rootView);
                     updateTexts();
                     return;
                 }

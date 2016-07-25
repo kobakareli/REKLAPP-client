@@ -17,8 +17,6 @@ public class InfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.info_layout, container, false);
-        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
-        fab.setVisibility(View.GONE);
         String info1 = "გასაცემი თანხის ექვივალენტური თანხა გაიცემა <font color='#EE0000'>ბიტკოინებში</font>. <font color='#EE0000'>ბიტკოინი</font> არის ციფრული ვალუტა,\n" +
                 "                            რომელსაც, როგორც ჩვეულებრივ ვალუტას, აქვს გაცვლითი კურსი სხვა ვალუტებთან. თქვენ\n" +
                 "                            მოახერხებთ თანხის <font color='#EE0000'>emoney</font>-ის\n" +

@@ -57,11 +57,6 @@ public class UserEditFragment extends Fragment {
         setUpEditTexts(rootView);
         final User user = getArguments().getParcelable("user");
         fillData(user);
-        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
-        fab.setVisibility(View.GONE);
-
-        FloatingActionButton fab2 = (FloatingActionButton) getActivity().findViewById(R.id.fab2);
-        fab2.setVisibility(View.GONE);
 
         Button cancel = (Button) rootView.findViewById(R.id.btn_cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
