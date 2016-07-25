@@ -136,28 +136,28 @@ public class UserFragment extends Fragment {
 
     private void initTextViews(View rootView, User user) {
         balance = (TextView) rootView.findViewById(R.id.balance);
-        balance.setText(Html.fromHtml("<b>ანგარიში:<b> " + user.money));
+        balance.setText(Html.fromHtml("<b>ანგარიში:</b >" + user.money));
         name = (TextView) rootView.findViewById(R.id.name);
-        name.setText(Html.fromHtml("<b>სახელი:<b> " + user.name));
+        name.setText(Html.fromHtml("<b>სახელი:</b> " + user.name));
         surname = (TextView) rootView.findViewById(R.id.surname);
-        surname.setText(Html.fromHtml("<b>გვარი:<b> " + user.surname));
+        surname.setText(Html.fromHtml("<b>გვარი:</b> " + user.surname));
         email = (TextView) rootView.findViewById(R.id.email);
-        email.setText(Html.fromHtml("<b>ელ. ფოსტა:<b> " + user.email));
+        email.setText(Html.fromHtml("<b>ელ. ფოსტა:</b> " + user.email));
         id = (TextView) rootView.findViewById(R.id.pid);
-        id.setText(Html.fromHtml("<b>პირადი ნომერი:<b> " + user.pin));
+        id.setText(Html.fromHtml("<b>პირადი ნომერი:</b> " + user.pin));
         city = (TextView) rootView.findViewById(R.id.city);
-        city.setText(Html.fromHtml("<b>ქალაქი:<b> " + user.city));
+        city.setText(Html.fromHtml("<b>ქალაქი:</b> " + user.city));
         address = (TextView) rootView.findViewById(R.id.address);
-        address.setText(Html.fromHtml("<b>მისამართი:<b> " + user.street_address));
+        address.setText(Html.fromHtml("<b>მისამართი:</b> " + user.street_address));
         sex = (TextView) rootView.findViewById(R.id.sex);
-        sex.setText(Html.fromHtml("<b>სქესი:<b> " + user.sex));
+        sex.setText(Html.fromHtml("<b>სქესი:</b> " + user.sex));
         birthdate = (TextView) rootView.findViewById(R.id.birthdate);
-        birthdate.setText(Html.fromHtml("<b>დაბადების თარიღი:<b> " + user.birthdate));
+        birthdate.setText(Html.fromHtml("<b>დაბადების თარიღი:</b> " + user.birthdate));
         relationship = (TextView) rootView.findViewById(R.id.relationship);
-        relationship.setText(Html.fromHtml("<b>ოჯახური მდგომარეობა:<b> " + user.relationship));
+        relationship.setText(Html.fromHtml("<b>ოჯახური მდგომარეობა:</b> " + user.relationship));
         numberOfChildren = (TextView) rootView.findViewById(R.id.numChildren);
-        numberOfChildren.setText(Html.fromHtml("<b>შვილების რაოდენობა:<b> " + Integer.toString(user.number_of_children)));
+        numberOfChildren.setText(Html.fromHtml("<b>შვილების რაოდენობა:</b> " + Integer.toString(user.number_of_children)));
         averageIncome = (TextView) rootView.findViewById(R.id.income);
-        averageIncome.setText(Html.fromHtml("<b>საშუალო თვიური შემოსავალი:<b> " + Integer.toString(user.average_monthly_income)));
+        averageIncome.setText(Html.fromHtml("<b>საშუალო თვიური შემოსავალი:</b> " + Integer.toString(user.average_monthly_income)));
     }
 }

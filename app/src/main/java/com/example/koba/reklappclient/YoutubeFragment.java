@@ -103,8 +103,7 @@ public class YoutubeFragment extends Fragment {
                 .setEndpoint(RetroFitServer.URI)
                 .build();
         api = adapter.create(RetroFitServer.class);
-
-        videoId = "j5-yKhDd64s"; // currentAd.getURL();
+        
         getNextAd();
 
 
@@ -129,7 +128,7 @@ public class YoutubeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 if (watched) {
-                    TransferRequestBody trb = new TransferRequestBody(user.money);
+                    TransferRequestBody trb = new TransferRequestBody(currentAd.getPrice());
                     api.transferMoney(user.mobile_number, "self", trb, new Callback<AddUserBody>() {
                         @Override
                         public void success(AddUserBody addUserBody, Response response) {
