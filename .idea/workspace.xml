@@ -37,10 +37,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="YoutubeFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="YoutubeFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="9.058394">
+            <state vertical-scroll-proportion="-171.17241">
               <caret line="324" column="62" selection-start-line="324" selection-start-column="62" selection-end-line="324" selection-end-column="62" />
               <folding>
                 <element signature="e#3897#5972#0" expanded="true" />
@@ -105,7 +105,7 @@
       <file leaf-file-name="SignUpActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.206897">
+            <state vertical-scroll-proportion="76.965515">
               <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
               <folding />
             </state>
@@ -122,17 +122,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.5172415">
-              <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+            <state vertical-scroll-proportion="0.16970803">
+              <caret line="98" column="107" selection-start-line="98" selection-start-column="107" selection-end-line="98" selection-end-column="107" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2999#4385#0" expanded="true" />
-                <element signature="e#4269#4270#0" expanded="true" />
-                <element signature="e#4340#4341#0" expanded="true" />
-                <element signature="e#4384#4385#0" expanded="true" />
+                <element signature="e#3114#5963#0" expanded="true" />
+                <element signature="e#3536#5648#0" expanded="true" />
+                <element signature="e#4561#4619#0" expanded="true" />
+                <element signature="e#5500#5547#0" expanded="true" />
+                <element signature="e#5647#5648#0" expanded="true" />
+                <element signature="e#5704#5907#0" expanded="true" />
+                <element signature="e#5906#5907#0" expanded="true" />
+                <element signature="e#5962#5963#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1709,8 +1713,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java" />
       </list>
     </option>
   </component>
@@ -2700,14 +2704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.206897">
-          <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserEditFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-80.89655">
@@ -2737,23 +2733,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5172415">
-          <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2999#4385#0" expanded="true" />
-            <element signature="e#4269#4270#0" expanded="true" />
-            <element signature="e#4340#4341#0" expanded="true" />
-            <element signature="e#4384#4385#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="9.058394">
+        <state vertical-scroll-proportion="-171.17241">
           <caret line="324" column="62" selection-start-line="324" selection-start-column="62" selection-end-line="324" selection-end-column="62" />
           <folding>
             <element signature="e#3897#5972#0" expanded="true" />
@@ -2763,6 +2745,32 @@
             <element signature="e#5971#5972#0" expanded="true" />
             <element signature="e#10518#10519#0" expanded="true" />
             <element signature="e#10573#10574#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="76.965515">
+          <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16970803">
+          <caret line="98" column="107" selection-start-line="98" selection-start-column="107" selection-end-line="98" selection-end-column="107" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3114#5963#0" expanded="true" />
+            <element signature="e#3536#5648#0" expanded="true" />
+            <element signature="e#4561#4619#0" expanded="true" />
+            <element signature="e#5500#5547#0" expanded="true" />
+            <element signature="e#5647#5648#0" expanded="true" />
+            <element signature="e#5704#5907#0" expanded="true" />
+            <element signature="e#5906#5907#0" expanded="true" />
+            <element signature="e#5962#5963#0" expanded="true" />
           </folding>
         </state>
       </provider>

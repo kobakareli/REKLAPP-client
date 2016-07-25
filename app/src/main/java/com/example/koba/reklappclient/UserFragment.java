@@ -1,16 +1,19 @@
 package com.example.koba.reklappclient;
 
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,29 +83,50 @@ public class UserFragment extends Fragment {
         transferMoney.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RestAdapter adapter = new RestAdapter.Builder()
-                        .setEndpoint(RetroFitServer.URI)
-                        .build();
-                RetroFitServer api = adapter.create(RetroFitServer.class);
-                TransferRequestBody trb = new TransferRequestBody(user.money);
-                api.transferMoney(user.mobile_number, user.email, trb, new Callback<AddUserBody>() { //TODO coinbase mail
-                    @Override
-                    public void success(AddUserBody addUserBody, Response response) {
-                        String problem = addUserBody.getProblem();
-                        if (problem.compareTo(getResources().getString(R.string.transfer_success_status)) == 0) {
-                            Toast.makeText(getActivity(), "გადარიცხვა დასრულებულია", Toast.LENGTH_SHORT).show();
-                            user.money = 0;
-                        }
-                        else {
-                            Toast.makeText(getActivity(), problem, Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                final AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                final EditText coinbaseEmail = new EditText(getActivity());
+                coinbaseEmail.setHint("Enter coinbase email");
+                alert.setView(coinbaseEmail);
+                alert.setPositiveButton("გადარიცხვა", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String email = coinbaseEmail.getText().toString().trim();
+                        if (SignUpActivity.isEmailValid(email)) {
+                            RestAdapter adapter = new RestAdapter.Builder()
+                                    .setEndpoint(RetroFitServer.URI)
+                                    .build();
+                            RetroFitServer api = adapter.create(RetroFitServer.class);
+                            TransferRequestBody trb = new TransferRequestBody(user.money);
+                            api.transferMoney(user.mobile_number, email, trb, new Callback<AddUserBody>() {
+                                @Override
+                                public void success(AddUserBody addUserBody, Response response) {
+                                    String problem = addUserBody.getProblem();
+                                    if (problem.compareTo(getResources().getString(R.string.transfer_success_status)) == 0) {
+                                        Toast.makeText(getActivity(), "გადარიცხვა დასრულებულია", Toast.LENGTH_SHORT).show();
+                                        user.money = 0;
+                                        balance.setText(Html.fromHtml("<b>ანგარიში:<b> " + user.money));
+                                    }
+                                    else {
+                                        Toast.makeText(getActivity(), problem, Toast.LENGTH_SHORT).show();
+                                    }
+                                }
 
-                    @Override
-                    public void failure(RetrofitError error) {
-                        error.printStackTrace();
+                                @Override
+                                public void failure(RetrofitError error) {
+                                    error.printStackTrace();
+                                }
+                            });
+                        }
+                        Toast.makeText(getActivity(), getResources().getString(R.string.format_error),
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
+
+                alert.setNegativeButton("გაუქმება", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.cancel();
+                    }
+                });
+                alert.show();
             }
         });
 
