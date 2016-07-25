@@ -61,6 +61,8 @@ public class YoutubeFragment extends Fragment {
 
     private CountDownTimer interval;
     private CountDownTimer visible;
+    private boolean isIntervalCanceled = false;
+    private boolean isVisibleCanceled = false;
 
     private boolean watched = true;
 
@@ -227,11 +229,13 @@ public class YoutubeFragment extends Fragment {
         public void onPlaying() {
             if((PUSH_BUTTON_APPEARANCES - pushButtonAppeared) != 0) {
                 pushButtonInterval = duration / (PUSH_BUTTON_APPEARANCES - pushButtonAppeared) - PUSH_BUTTON_DURATION;
-                if(fab2.getVisibility() == View.GONE && visible != null) {
+                if(fab2.getVisibility() == View.GONE && interval != null) {
                     wasPushed = true;
+                    isIntervalCanceled = false;
                     disappearPush();
                 }
-                else if (fab2.getVisibility() == View.VISIBLE) {
+                if (fab2.getVisibility() == View.VISIBLE && visible != null) {
+                    isVisibleCanceled = false;
                     appearPush();
                 }
             }
@@ -239,15 +243,27 @@ public class YoutubeFragment extends Fragment {
 
         @Override
         public void onPaused() {
-            if(interval != null && visible != null) {
+            if(interval != null) {
                 duration -= youtubePlayer.getCurrentTimeMillis();
                 interval.cancel();
+                isIntervalCanceled = true;
+            }
+            if (visible != null) {
                 visible.cancel();
+                isVisibleCanceled = true;
             }
         }
 
         @Override
         public void onStopped() {
+            if (interval != null) {
+                interval.cancel();
+                isIntervalCanceled = true;
+            }
+            if (visible != null) {
+                visible.cancel();
+                isVisibleCanceled = true;
+            }
             interval = null;
             visible = null;
         }
@@ -345,6 +361,8 @@ public class YoutubeFragment extends Fragment {
                     watched = false;
                     interval.cancel();
                     visible.cancel();
+                    isVisibleCanceled = true;
+                    isIntervalCanceled = true;
                     if (fab.getVisibility() != View.VISIBLE) {
                         fab.setVisibility(View.VISIBLE);
                         fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
@@ -362,7 +380,7 @@ public class YoutubeFragment extends Fragment {
                 }
 
                 public void onFinish() {
-                    if (fab2.getVisibility() == View.GONE) {
+                    if (!isIntervalCanceled && fab2 != null && fab2.getVisibility() == View.GONE) {
                         appearPush();
                     }
                 }
@@ -381,7 +399,7 @@ public class YoutubeFragment extends Fragment {
                 }
 
                 public void onFinish() {
-                    if (fab2.getVisibility() == View.VISIBLE) {
+                    if (!isVisibleCanceled && fab2 != null && fab2.getVisibility() == View.VISIBLE) {
                         disappearPush();
                     }
                 }
@@ -392,10 +410,14 @@ public class YoutubeFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if(interval != null && visible != null) {
+        fab2 = null;
+        if(interval != null) {
             interval.cancel(); interval = null;
+            isIntervalCanceled = true;
+        }
+        if (visible != null) {
             visible.cancel(); visible = null;
-
+            isVisibleCanceled = true;
         }
 
     }

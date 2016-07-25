@@ -37,20 +37,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="YoutubeFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="YoutubeFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4251825">
-              <caret line="217" column="59" selection-start-line="217" selection-start-column="58" selection-end-line="217" selection-end-column="59" />
+            <state vertical-scroll-proportion="-118.413795">
+              <caret line="236" column="75" selection-start-line="236" selection-start-column="75" selection-end-line="236" selection-end-column="75" />
               <folding>
-                <element signature="e#2432#2482#0" expanded="true" />
-                <element signature="e#4334#7433#0" expanded="true" />
-                <element signature="e#5027#5085#0" expanded="true" />
-                <element signature="e#6433#6434#0" expanded="true" />
-                <element signature="e#6512#6513#0" expanded="true" />
-                <element signature="e#7432#7433#0" expanded="true" />
-                <element signature="e#12900#12901#0" expanded="true" />
-                <element signature="e#12955#12956#0" expanded="true" />
+                <element signature="e#2527#2577#0" expanded="true" />
+                <element signature="e#4429#7528#0" expanded="true" />
+                <element signature="e#5122#5180#0" expanded="true" />
+                <element signature="e#6528#6529#0" expanded="true" />
+                <element signature="e#6607#6608#0" expanded="true" />
+                <element signature="e#7527#7528#0" expanded="true" />
+                <element signature="e#13473#13474#0" expanded="true" />
+                <element signature="e#13528#13529#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,8 +62,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1636364">
-              <caret line="7" column="65" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="65" />
+            <state vertical-scroll-proportion="-31.527273">
+              <caret line="102" column="49" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
               <folding>
                 <element signature="e#312#352#0" expanded="true" />
                 <element signature="e#1371#1405#0" expanded="true" />
@@ -85,13 +85,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_layout.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user_layout.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.109091">
+            <state vertical-scroll-proportion="1.1704981">
               <caret line="199" column="37" selection-start-line="199" selection-start-column="37" selection-end-line="199" selection-end-column="37" />
               <folding>
                 <element signature="e#312#352#0" expanded="true" />
@@ -200,6 +200,18 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="18" column="81" selection-start-line="18" selection-start-column="81" selection-end-line="18" selection-end-column="81" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="163" column="34" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1757,15 +1769,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/NextDay.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/sign_in_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_playback.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserEditFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/InfoFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java" />
       </list>
     </option>
   </component>
@@ -1957,7 +1969,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="device.picker.selection" value="Nexus_5_API_19" />
+    <property name="device.picker.selection" value="YT9111FSRZ" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -2241,7 +2253,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2301,8 +2313,26 @@
           <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java</url>
+          <line>229</line>
+          <properties />
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java</url>
+          <line>401</line>
+          <properties />
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java</url>
+          <line>382</line>
+          <properties />
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="52" />
+      <option name="time" value="64" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2661,24 +2691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="163" column="34" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/SignUpActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.072993">
@@ -2738,33 +2750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1636364">
-          <caret line="7" column="65" selection-start-line="1" selection-start-column="0" selection-end-line="7" selection-end-column="65" />
-          <folding>
-            <element signature="e#312#352#0" expanded="true" />
-            <element signature="e#1371#1405#0" expanded="true" />
-            <element signature="e#1500#1530#0" expanded="true" />
-            <element signature="e#1853#1876#0" expanded="true" />
-            <element signature="e#2230#2264#0" expanded="true" />
-            <element signature="e#2359#2389#0" expanded="true" />
-            <element signature="e#2725#2748#0" expanded="true" />
-            <element signature="e#3104#3138#0" expanded="true" />
-            <element signature="e#3233#3263#0" expanded="true" />
-            <element signature="e#3585#3608#0" expanded="true" />
-            <element signature="e#3962#3996#0" expanded="true" />
-            <element signature="e#4091#4121#0" expanded="true" />
-            <element signature="e#4460#4483#0" expanded="true" />
-            <element signature="e#4946#4965#0" expanded="true" />
-            <element signature="e#5427#5446#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserEditFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2795,12 +2780,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="163" column="34" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-118.413795">
+          <caret line="236" column="75" selection-start-line="236" selection-start-column="75" selection-end-line="236" selection-end-column="75" />
+          <folding>
+            <element signature="e#2527#2577#0" expanded="true" />
+            <element signature="e#4429#7528#0" expanded="true" />
+            <element signature="e#5122#5180#0" expanded="true" />
+            <element signature="e#6528#6529#0" expanded="true" />
+            <element signature="e#6607#6608#0" expanded="true" />
+            <element signature="e#7527#7528#0" expanded="true" />
+            <element signature="e#13473#13474#0" expanded="true" />
+            <element signature="e#13528#13529#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-31.527273">
+          <caret line="102" column="49" selection-start-line="102" selection-start-column="49" selection-end-line="102" selection-end-column="49" />
+          <folding>
+            <element signature="e#312#352#0" expanded="true" />
+            <element signature="e#1371#1405#0" expanded="true" />
+            <element signature="e#1500#1530#0" expanded="true" />
+            <element signature="e#1853#1876#0" expanded="true" />
+            <element signature="e#2230#2264#0" expanded="true" />
+            <element signature="e#2359#2389#0" expanded="true" />
+            <element signature="e#2725#2748#0" expanded="true" />
+            <element signature="e#3104#3138#0" expanded="true" />
+            <element signature="e#3233#3263#0" expanded="true" />
+            <element signature="e#3585#3608#0" expanded="true" />
+            <element signature="e#3962#3996#0" expanded="true" />
+            <element signature="e#4091#4121#0" expanded="true" />
+            <element signature="e#4460#4483#0" expanded="true" />
+            <element signature="e#4946#4965#0" expanded="true" />
+            <element signature="e#5427#5446#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.109091">
+        <state vertical-scroll-proportion="1.1704981">
           <caret line="199" column="37" selection-start-line="199" selection-start-column="37" selection-end-line="199" selection-end-column="37" />
           <folding>
             <element signature="e#312#352#0" expanded="true" />
@@ -2842,23 +2889,6 @@
             <element signature="e#9268#9283#0" expanded="true" />
             <element signature="e#9546#9570#0" expanded="true" />
             <element signature="e#9947#9966#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/YoutubeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4251825">
-          <caret line="217" column="59" selection-start-line="217" selection-start-column="58" selection-end-line="217" selection-end-column="59" />
-          <folding>
-            <element signature="e#2432#2482#0" expanded="true" />
-            <element signature="e#4334#7433#0" expanded="true" />
-            <element signature="e#5027#5085#0" expanded="true" />
-            <element signature="e#6433#6434#0" expanded="true" />
-            <element signature="e#6512#6513#0" expanded="true" />
-            <element signature="e#7432#7433#0" expanded="true" />
-            <element signature="e#12900#12901#0" expanded="true" />
-            <element signature="e#12955#12956#0" expanded="true" />
           </folding>
         </state>
       </provider>
