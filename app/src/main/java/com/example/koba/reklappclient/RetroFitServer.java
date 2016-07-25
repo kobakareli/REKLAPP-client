@@ -36,9 +36,9 @@ public interface RetroFitServer {
     void getUserByLogin(@Path("mobile_number") String number, @Path("password") String password, Callback<User> response);
 
     @POST("/webapi/ads/{ad_id}/view")
-    void increaseViewsLeft(@Path("ad_id") int adId);
+    void increaseViewsLeft(@Path("ad_id") int adId, Callback<AddUserBody> response);
 
     @POST("/webapi/pairs/{pair_id}/date")
-    void updatePairDate(@Path("pair_id") int pairId);
+    void updatePairDate(@Path("pair_id") int pairId, Callback<AddUserBody> response);
 
 }

@@ -1,5 +1,10 @@
 package com.example.koba.reklappclient;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +18,8 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.util.Calendar;
 
 /**
  * Created by Koba on 16/07/2016.
@@ -37,6 +44,8 @@ public class AppActivity extends AppCompatActivity {
         setContentView(R.layout.activity_playback);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        nextDayListener();
 
         currentFragmentId = GlobalVariables.YOUTUBE_FRAGMENT_ID;
 
@@ -145,6 +154,18 @@ public class AppActivity extends AppCompatActivity {
         return f;
     }
 
+    private void nextDayListener() {
+        Calendar cal = Calendar.getInstance();
+        Intent reset = new Intent(this, NextDay.class);
+        AlarmManager alarms ;
+        PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, reset, 0);
+        alarms = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        cal.set(Calendar.HOUR_OF_DAY, 24);
+        cal.set(Calendar.MINUTE, 00);
+        cal.set(Calendar.SECOND, 00);
+        alarms.set(AlarmManager.RTC, cal.getTimeInMillis(), alarmIntent);
+    }
+
     @Override
     public void onBackPressed() {
 
@@ -157,5 +178,4 @@ public class AppActivity extends AppCompatActivity {
         }
 
     }
-
 }

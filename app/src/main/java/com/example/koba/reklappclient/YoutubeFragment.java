@@ -1,7 +1,9 @@
 package com.example.koba.reklappclient;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -36,7 +38,7 @@ public class YoutubeFragment extends Fragment {
 
     public static final String YOUTUBE_API_KEY = "AIzaSyBqzMy33km9EzeA1BE1PXRe6n7OckncUxE";
 
-    private final int PUSH_BUTTON_APPEARANCES = 5;
+    private int PUSH_BUTTON_APPEARANCES = 5;
     private final int PUSH_BUTTON_DURATION = 5000;
 
     private User user;
@@ -62,9 +64,22 @@ public class YoutubeFragment extends Fragment {
 
     private boolean watched = true;
 
+    private int videoCount = 0;
+
+    private SharedPreferences prefs;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.playback_layout, container, false);
+
+        prefs = getActivity().getSharedPreferences(
+                getResources().getString(R.string.preferences_key), Context.MODE_PRIVATE);
+        if (prefs.contains("videoCount")) {
+            videoCount = prefs.getInt("videoCount", 0);
+        }
+        else {
+            prefs.edit().putInt("videoCount", videoCount).commit();
+        }
 
         Bundle args = getArguments();
         user = args.getParcelable("user");
@@ -118,9 +133,20 @@ public class YoutubeFragment extends Fragment {
                     api.transferMoney(user.mobile_number, "self", trb, new Callback<AddUserBody>() {
                         @Override
                         public void success(AddUserBody addUserBody, Response response) {
+                            videoCount ++;
+                            prefs.edit().putInt("videoCount", videoCount).commit();
                             String problem = addUserBody.getProblem();
                             if (problem.compareTo(getResources().getString(R.string.transfer_success_status)) == 0) {
                                 user.money += currentAd.getPrice();
+                                api.updatePairDate(currentAd.getPairId(), new Callback<AddUserBody>() {
+                                    @Override
+                                    public void success(AddUserBody addUserBody, Response response) {
+                                    }
+
+                                    @Override
+                                    public void failure(RetrofitError error) {
+                                    }
+                                });
                                 Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
                                 FragmentManager manager = getActivity().getSupportFragmentManager();
                                 manager.beginTransaction()
@@ -139,6 +165,17 @@ public class YoutubeFragment extends Fragment {
                     });
                 }
                 else {
+                    api.increaseViewsLeft(currentAd.getAdId(), new Callback<AddUserBody>() {
+                        @Override
+                        public void success(AddUserBody addUserBody, Response response) {
+
+                        }
+
+                        @Override
+                        public void failure(RetrofitError error) {
+
+                        }
+                    });
                     Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
                     FragmentManager manager = getActivity().getSupportFragmentManager();
                     manager.beginTransaction()
@@ -237,8 +274,15 @@ public class YoutubeFragment extends Fragment {
         @Override
         public void onLoaded(String arg0) {
             duration = youtubePlayer.getDurationMillis();
-            pushButtonInterval = duration/PUSH_BUTTON_APPEARANCES - PUSH_BUTTON_DURATION;
-            disappearPush();
+            if (duration >= 60000) {
+                pushButtonInterval = duration/PUSH_BUTTON_APPEARANCES - PUSH_BUTTON_DURATION;
+                disappearPush();
+            }
+            else if(duration < 60000 && duration >= 30000) {
+                PUSH_BUTTON_APPEARANCES = 3;
+                pushButtonInterval = duration/PUSH_BUTTON_APPEARANCES - PUSH_BUTTON_DURATION;
+                disappearPush();
+            }
         }
 
         @Override
@@ -259,6 +303,10 @@ public class YoutubeFragment extends Fragment {
     };
 
     private void getNextAd() {
+        if (videoCount >= GlobalVariables.USER_DAILY_LIMIT) {
+            Toast.makeText(getActivity(), "თქვენ უკვე გადააჭარბეთ დღიურ ლიმიტს", Toast.LENGTH_SHORT).show();
+            return;
+        }
         api.getRandomAdvertisement(userNumber, new Callback<Advertisement>() {
             @Override
             public void success(Advertisement advertisement, Response response) {

@@ -13,4 +13,6 @@ public class GlobalVariables {
     public static final int USER_FRAGMENT_ID = 3;
     public static final int USER_EDIT_FRAGMENT_ID = 4;
 
+    public static final int USER_DAILY_LIMIT = 20;
+
 }
