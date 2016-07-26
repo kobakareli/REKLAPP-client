@@ -236,7 +236,7 @@ public class YoutubeFragment extends Fragment {
         description.setText(Html.fromHtml("<b>პროდუქტის აღწერა: </b>\n" + currentAd.getDescription()));
         int durationMins = duration/1000/60;
         int durationSecs = duration/1000%60;
-        adDuration.setText(Integer.toString(durationMins) + ":" + Integer.toString(durationSecs));
+        adDuration.setText(Html.fromHtml("<b>ვიდეოს ხანგრძლივობა: </b>" + Integer.toString(durationMins) + ":" + Integer.toString(durationSecs)));
     }
 
     private YouTubePlayer.PlaybackEventListener playbackListener = new YouTubePlayer.PlaybackEventListener() {
@@ -317,6 +317,9 @@ public class YoutubeFragment extends Fragment {
         @Override
         public void onLoaded(String arg0) {
             duration = youtubePlayer.getDurationMillis();
+            int durationMins = duration/1000/60;
+            int durationSecs = duration/1000%60;
+            adDuration.setText(Html.fromHtml("<b>ვიდეოს ხანგრძლივობა: </b>" + Integer.toString(durationMins) + ":" + Integer.toString(durationSecs)));
             if (duration >= 60000) {
                 pushButtonInterval = duration/PUSH_BUTTON_APPEARANCES - PUSH_BUTTON_DURATION;
                 disappearPush(false);
