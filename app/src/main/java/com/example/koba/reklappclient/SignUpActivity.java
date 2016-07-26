@@ -206,7 +206,7 @@ public class SignUpActivity extends AppCompatActivity{
     private boolean isInputValid(String name, String surname, String number, String email, String password, String address, String birthdate, String numChildren,
                                  String income, String city, String gender, String relationship, String id) {
         boolean status = true;
-        if(name.length() == 0) {
+        /*if(name.length() == 0) {
             this.name.setError(getResources().getString(R.string.empty_field_error));
             status = false;
         }
@@ -217,12 +217,12 @@ public class SignUpActivity extends AppCompatActivity{
         if(email.length() == 0) {
             this.email.setError(getResources().getString(R.string.empty_field_error));
             status = false;
-        }
+        }*/
         if(password.length() < 6 || password.length() > 20) {
             this.password.setError(getResources().getString(R.string.password_length_error));
             status = false;
         }
-        if (address.length() == 0) {
+        /*if (address.length() == 0) {
             this.address.setError(getResources().getString(R.string.empty_field_error));
             status = false;
         }
@@ -237,10 +237,19 @@ public class SignUpActivity extends AppCompatActivity{
         if (income.length() == 0) {
             this.income.setError(getResources().getString(R.string.empty_field_error));
             status = false;
-        }
-        if(id.length() != GlobalVariables.ID_LENGTH) {
+        }*/
+        if(id.length() != 0 && id.length() != GlobalVariables.ID_LENGTH) {
             this.id.setError(getResources().getString(R.string.length_error) + GlobalVariables.ID_LENGTH);
             status = false;
+        }
+        if(id.length() != 0) {
+            for(int i = 0; i < id.length(); i++) {
+                char c = id.charAt(i);
+                if (!Character.isDigit(c)) {
+                    this.id.setError(getResources().getString(R.string.number_error));
+                    status = false;
+                }
+            }
         }
         if(number.length() != GlobalVariables.NUMBER_LENGTH) {
             this.number.setError(getResources().getString(R.string.length_error) + GlobalVariables.NUMBER_LENGTH);
@@ -253,7 +262,11 @@ public class SignUpActivity extends AppCompatActivity{
                 status = false;
             }
         }
-        for(int i = 0; i < numChildren.length(); i++) {
+        if (email.length() != 0 && !isEmailValid(email)) {
+            this.email.setError(getResources().getString(R.string.format_error));
+            status = false;
+        }
+        /*for(int i = 0; i < numChildren.length(); i++) {
             char c = numChildren.charAt(i);
             if (!Character.isDigit(c)) {
                 this.numberOfChildren.setError(getResources().getString(R.string.number_error));
@@ -267,10 +280,7 @@ public class SignUpActivity extends AppCompatActivity{
                 status = false;
             }
         }
-        if (!isEmailValid(email)) {
-            this.email.setError(getResources().getString(R.string.format_error));
-            status = false;
-        }
+
         if (city.compareTo(getResources().getStringArray(R.array.cities_array)[0]) == 0) {
             Toast.makeText(this, getResources().getString(R.string.city_error), Toast.LENGTH_SHORT).show();
             status = false;
@@ -282,7 +292,7 @@ public class SignUpActivity extends AppCompatActivity{
         if (relationship.compareTo(getResources().getStringArray(R.array.relationships_array)[0]) == 0) {
             Toast.makeText(this, getResources().getString(R.string.relationship_error), Toast.LENGTH_SHORT).show();
             status = false;
-        }
+        }*/
         return status;
     }
 

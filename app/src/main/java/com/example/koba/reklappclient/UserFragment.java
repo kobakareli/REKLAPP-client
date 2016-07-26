@@ -106,8 +106,10 @@ public class UserFragment extends Fragment {
                                 }
                             });
                         }
-                        Toast.makeText(getActivity(), getResources().getString(R.string.format_error),
-                                Toast.LENGTH_SHORT).show();
+                        else {
+                            Toast.makeText(getActivity(), getResources().getString(R.string.format_error),
+                                    Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
 

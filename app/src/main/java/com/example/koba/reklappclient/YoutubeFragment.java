@@ -26,6 +26,8 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
+import org.w3c.dom.Text;
+
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
@@ -49,6 +51,7 @@ public class YoutubeFragment extends Fragment {
     private String userNumber;
     private RetroFitServer api;
     private TextView price;
+    private TextView adDuration;
     private TextView company;
     private TextView product;
     private TextView description;
@@ -100,6 +103,7 @@ public class YoutubeFragment extends Fragment {
         product = (TextView) rootView.findViewById(R.id.product_name);
         description = (TextView) rootView.findViewById(R.id.product_description);
         price = (TextView) rootView.findViewById(R.id.ad_price);
+        adDuration = (TextView) rootView.findViewById(R.id.ad_duration);
 
         RestAdapter adapter = new RestAdapter.Builder()
                 .setEndpoint(RetroFitServer.URI)
@@ -219,6 +223,9 @@ public class YoutubeFragment extends Fragment {
         company.setText(Html.fromHtml("<b>კომპანიის დასახელება: </b>\n" + currentAd.getCompany()));
         product.setText(Html.fromHtml("<b>პროდუქტის დასახელება: </b>\n" + currentAd.getProduct()));
         description.setText(Html.fromHtml("<b>პროდუქტის აღწერა: </b>\n" + currentAd.getDescription()));
+        int durationMins = duration/1000/60;
+        int durationSecs = duration/1000%60;
+        adDuration.setText(Integer.toString(durationMins) + ":" + Integer.toString(durationSecs));
     }
 
     private YouTubePlayer.PlaybackEventListener playbackListener = new YouTubePlayer.PlaybackEventListener() {
