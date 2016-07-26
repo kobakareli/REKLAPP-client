@@ -122,70 +122,81 @@ public class YoutubeFragment extends Fragment {
             return;
         }
         fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-        fab.setVisibility(View.GONE);
-        fab.animate().translationX(100).alpha(0.0f);
+        //fab.setVisibility(View.GONE);
+        //fab.animate().translationX(100).alpha(0.0f);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (watched) {
-                    TransferRequestBody trb = new TransferRequestBody(currentAd.getPrice());
-                    api.transferMoney(user.mobile_number, "self", trb, new Callback<AddUserBody>() {
-                        @Override
-                        public void success(AddUserBody addUserBody, Response response) {
-                            videoCount ++;
-                            prefs.edit().putInt("videoCount", videoCount).commit();
-                            String problem = addUserBody.getProblem();
-                            AddUserBody aub = new AddUserBody("bla");
-                            if (problem.compareTo(getResources().getString(R.string.transfer_success_status)) == 0) {
-                                user.money += currentAd.getPrice();
-                                api.updatePairDate(currentAd.getPairId(), aub, new Callback<AddUserBody>() {
-                                    @Override
-                                    public void success(AddUserBody addUserBody, Response response) {
-                                        String problem = addUserBody.getProblem();
-                                    }
-
-                                    @Override
-                                    public void failure(RetrofitError error) {
-                                        String str = new String(error.getResponse().getBody().mimeType());
-                                        error.printStackTrace();
-                                    }
-                                });
-                                Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
-                                FragmentManager manager = getActivity().getSupportFragmentManager();
-                                manager.beginTransaction()
-                                        .replace(R.id.flContent, current)
-                                        .addToBackStack(null)
-                                        .commit();
-                            } else {
-                                Toast.makeText(getActivity(), problem, Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void failure(RetrofitError error) {
-                            error.printStackTrace();
-                        }
-                    });
-                }
-                else {
-                    AddUserBody aub = new AddUserBody("bla");
-                    api.increaseViewsLeft(currentAd.getAdId(), aub, new Callback<AddUserBody>() {
-                        @Override
-                        public void success(AddUserBody addUserBody, Response response) {
-
-                        }
-
-                        @Override
-                        public void failure(RetrofitError error) {
-                            error.printStackTrace();
-                        }
-                    });
+                if (youtubePlayer.getCurrentTimeMillis() < youtubePlayer.getDurationMillis()) {
+                    Toast.makeText(getActivity(), "ar itvleba", Toast.LENGTH_SHORT).show();
                     Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
                     FragmentManager manager = getActivity().getSupportFragmentManager();
                     manager.beginTransaction()
                             .replace(R.id.flContent, current)
                             .addToBackStack(null)
                             .commit();
+                }
+                else {
+                    if (watched) {
+                        TransferRequestBody trb = new TransferRequestBody(currentAd.getPrice());
+                        api.transferMoney(user.mobile_number, "self", trb, new Callback<AddUserBody>() {
+                            @Override
+                            public void success(AddUserBody addUserBody, Response response) {
+                                videoCount ++;
+                                prefs.edit().putInt("videoCount", videoCount).commit();
+                                String problem = addUserBody.getProblem();
+                                AddUserBody aub = new AddUserBody("bla");
+                                if (problem.compareTo(getResources().getString(R.string.transfer_success_status)) == 0) {
+                                    user.money += currentAd.getPrice();
+                                    api.updatePairDate(currentAd.getPairId(), aub, new Callback<AddUserBody>() {
+                                        @Override
+                                        public void success(AddUserBody addUserBody, Response response) {
+                                            String problem = addUserBody.getProblem();
+                                        }
+
+                                        @Override
+                                        public void failure(RetrofitError error) {
+                                            String str = new String(error.getResponse().getBody().mimeType());
+                                            error.printStackTrace();
+                                        }
+                                    });
+                                    Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
+                                    FragmentManager manager = getActivity().getSupportFragmentManager();
+                                    manager.beginTransaction()
+                                            .replace(R.id.flContent, current)
+                                            .addToBackStack(null)
+                                            .commit();
+                                } else {
+                                    Toast.makeText(getActivity(), problem, Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void failure(RetrofitError error) {
+                                error.printStackTrace();
+                            }
+                        });
+                    }
+                    else {
+                        AddUserBody aub = new AddUserBody("bla");
+                        api.increaseViewsLeft(currentAd.getAdId(), aub, new Callback<AddUserBody>() {
+                            @Override
+                            public void success(AddUserBody addUserBody, Response response) {
+
+                            }
+
+                            @Override
+                            public void failure(RetrofitError error) {
+                                error.printStackTrace();
+                            }
+                        });
+                        Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
+                        FragmentManager manager = getActivity().getSupportFragmentManager();
+                        manager.beginTransaction()
+                                .replace(R.id.flContent, current)
+                                .addToBackStack(null)
+                                .commit();
+                    }
                 }
             }
         });
@@ -209,8 +220,8 @@ public class YoutubeFragment extends Fragment {
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
-                fab.setVisibility(View.VISIBLE);
-                fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
+                //fab.setVisibility(View.VISIBLE);
+                //fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
                 String errorMessage = error.toString();
                 Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
                 Log.d("errorMessage:", errorMessage);
@@ -328,10 +339,10 @@ public class YoutubeFragment extends Fragment {
 
         @Override
         public void onVideoEnded() {
-            if (fab.getVisibility() != View.VISIBLE) {
+            /*if (fab.getVisibility() != View.VISIBLE) {
                 fab.setVisibility(View.VISIBLE);
                 fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
-            }
+            }*/
         }
 
         @Override

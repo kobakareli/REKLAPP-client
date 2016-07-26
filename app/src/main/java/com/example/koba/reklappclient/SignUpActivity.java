@@ -84,7 +84,13 @@ public class SignUpActivity extends AppCompatActivity{
                 String passwordString = password.getText().toString();
                 String addressString = address.getText().toString();
                 String numberOfChildrenString = numberOfChildren.getText().toString();
+                if (numberOfChildrenString.compareTo("") == 0) {
+                    numberOfChildrenString = "-1";
+                }
                 String incomeString = income.getText().toString();
+                if (incomeString.compareTo("") == 0) {
+                    incomeString = "-1";
+                }
                 String birthdateString = birthDate.getText().toString();
                 String city = cities.getSelectedItem().toString();
                 String gender = genders.getSelectedItem().toString();
