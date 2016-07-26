@@ -48,6 +48,7 @@
 
             <android.support.v7.widget.CardView
                 android:id="@+id/duration_input"
+                android:layout_below="@id/price_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 card_view:cardCornerRadius="@dimen/stream_card_corner_radius"
@@ -66,7 +67,7 @@
 
             <android.support.v7.widget.CardView
                 android:id="@+id/product_input"
-                android:layout_below="@id/price_input"
+                android:layout_below="@id/duration_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 card_view:cardCornerRadius="@dimen/stream_card_corner_radius"
