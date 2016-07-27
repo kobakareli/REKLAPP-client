@@ -122,13 +122,10 @@ public class YoutubeFragment extends Fragment {
             return;
         }
         fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-        //fab.setVisibility(View.GONE);
-        //fab.animate().translationX(100).alpha(0.0f);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (youtubePlayer.getCurrentTimeMillis() < youtubePlayer.getDurationMillis()) {
-                    Toast.makeText(getActivity(), "ar itvleba", Toast.LENGTH_SHORT).show();
                     Fragment current = ((AppActivity) getActivity()).getFragmentById(GlobalVariables.YOUTUBE_FRAGMENT_ID, user);
                     FragmentManager manager = getActivity().getSupportFragmentManager();
                     manager.beginTransaction()
@@ -220,8 +217,6 @@ public class YoutubeFragment extends Fragment {
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult error) {
-                //fab.setVisibility(View.VISIBLE);
-                //fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
                 String errorMessage = error.toString();
                 Toast.makeText(getActivity(), errorMessage, Toast.LENGTH_LONG).show();
                 Log.d("errorMessage:", errorMessage);
@@ -342,10 +337,6 @@ public class YoutubeFragment extends Fragment {
 
         @Override
         public void onVideoEnded() {
-            /*if (fab.getVisibility() != View.VISIBLE) {
-                fab.setVisibility(View.VISIBLE);
-                fab.animate().translationX(0).alpha(1.0f).setDuration(1000);
-            }*/
         }
 
         @Override

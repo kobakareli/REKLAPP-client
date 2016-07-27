@@ -212,38 +212,10 @@ public class SignUpActivity extends AppCompatActivity{
     private boolean isInputValid(String name, String surname, String number, String email, String password, String address, String birthdate, String numChildren,
                                  String income, String city, String gender, String relationship, String id) {
         boolean status = true;
-        /*if(name.length() == 0) {
-            this.name.setError(getResources().getString(R.string.empty_field_error));
-            status = false;
-        }
-        if(surname.length() == 0) {
-            this.surname.setError(getResources().getString(R.string.empty_field_error));
-            status = false;
-        }
-        if(email.length() == 0) {
-            this.email.setError(getResources().getString(R.string.empty_field_error));
-            status = false;
-        }*/
         if(password.length() < 6 || password.length() > 20) {
             this.password.setError(getResources().getString(R.string.password_length_error));
             status = false;
         }
-        /*if (address.length() == 0) {
-            this.address.setError(getResources().getString(R.string.empty_field_error));
-            status = false;
-        }
-        if (birthdate.length() == 0) {
-            this.birthDate.setError(getResources().getString(R.string.empty_field_error));
-            status = false;
-        }
-        if (numChildren.length() == 0) {
-            this.numberOfChildren.setError(getResources().getString(R.string.empty_field_error));
-            status = false;
-        }
-        if (income.length() == 0) {
-            this.income.setError(getResources().getString(R.string.empty_field_error));
-            status = false;
-        }*/
         if(id.length() != 0 && id.length() != GlobalVariables.ID_LENGTH) {
             this.id.setError(getResources().getString(R.string.length_error) + GlobalVariables.ID_LENGTH);
             status = false;
@@ -272,33 +244,6 @@ public class SignUpActivity extends AppCompatActivity{
             this.email.setError(getResources().getString(R.string.format_error));
             status = false;
         }
-        /*for(int i = 0; i < numChildren.length(); i++) {
-            char c = numChildren.charAt(i);
-            if (!Character.isDigit(c)) {
-                this.numberOfChildren.setError(getResources().getString(R.string.number_error));
-                status = false;
-            }
-        }
-        for(int i = 0; i < income.length(); i++) {
-            char c = income.charAt(i);
-            if (!Character.isDigit(c)) {
-                this.income.setError(getResources().getString(R.string.number_error));
-                status = false;
-            }
-        }
-
-        if (city.compareTo(getResources().getStringArray(R.array.cities_array)[0]) == 0) {
-            Toast.makeText(this, getResources().getString(R.string.city_error), Toast.LENGTH_SHORT).show();
-            status = false;
-        }
-        if (gender.compareTo(getResources().getStringArray(R.array.genders_array)[0]) == 0) {
-            Toast.makeText(this, getResources().getString(R.string.gender_error), Toast.LENGTH_SHORT).show();
-            status = false;
-        }
-        if (relationship.compareTo(getResources().getStringArray(R.array.relationships_array)[0]) == 0) {
-            Toast.makeText(this, getResources().getString(R.string.relationship_error), Toast.LENGTH_SHORT).show();
-            status = false;
-        }*/
         return status;
     }
 
