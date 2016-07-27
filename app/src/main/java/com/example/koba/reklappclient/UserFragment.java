@@ -138,18 +138,48 @@ public class UserFragment extends Fragment {
         id = (TextView) rootView.findViewById(R.id.pid);
         id.setText(Html.fromHtml("<b>პირადი ნომერი:</b> " + user.pin));
         city = (TextView) rootView.findViewById(R.id.city);
-        city.setText(Html.fromHtml("<b>ქალაქი:</b> " + user.city));
+        if (user.city.compareTo("ქალაქი") == 0) {
+            city.setText(Html.fromHtml("<b>ქალაქი:</b> "));
+        }
+        else {
+            city.setText(Html.fromHtml("<b>ქალაქი:</b> " + user.city));
+        }
         address = (TextView) rootView.findViewById(R.id.address);
         address.setText(Html.fromHtml("<b>მისამართი:</b> " + user.street_address));
         sex = (TextView) rootView.findViewById(R.id.sex);
-        sex.setText(Html.fromHtml("<b>სქესი:</b> " + user.sex));
+        if (user.sex.compareTo("სქესი") == 0) {
+            sex.setText(Html.fromHtml("<b>სქესი:</b> "));
+        }
+        else {
+            sex.setText(Html.fromHtml("<b>სქესი:</b> " + user.sex));
+        }
         birthdate = (TextView) rootView.findViewById(R.id.birthdate);
-        birthdate.setText(Html.fromHtml("<b>დაბადების თარიღი:</b> " + user.birthdate));
+        if (user.birthdate == null) {
+            birthdate.setText(Html.fromHtml("<b>დაბადების თარიღი:</b> "));
+        }
+        else {
+            birthdate.setText(Html.fromHtml("<b>დაბადების თარიღი:</b> " + user.birthdate));
+        }
         relationship = (TextView) rootView.findViewById(R.id.relationship);
-        relationship.setText(Html.fromHtml("<b>ოჯახური მდგომარეობა:</b> " + user.relationship));
+        if (user.relationship.compareTo("ოჯახური მდგომარეობა") == 0) {
+            relationship.setText(Html.fromHtml("<b>ოჯახური მდგომარეობა:</b> "));
+        }
+        else {
+            relationship.setText(Html.fromHtml("<b>ოჯახური მდგომარეობა:</b> " + user.relationship));
+        }
         numberOfChildren = (TextView) rootView.findViewById(R.id.numChildren);
-        numberOfChildren.setText(Html.fromHtml("<b>შვილების რაოდენობა:</b> " + Integer.toString(user.number_of_children)));
+        if (user.number_of_children == -1) {
+            numberOfChildren.setText(Html.fromHtml("<b>შვილების რაოდენობა:</b> "));
+        }
+        else {
+            numberOfChildren.setText(Html.fromHtml("<b>შვილების რაოდენობა:</b> " + Integer.toString(user.number_of_children)));
+        }
         averageIncome = (TextView) rootView.findViewById(R.id.income);
-        averageIncome.setText(Html.fromHtml("<b>საშუალო თვიური შემოსავალი:</b> " + Integer.toString(user.average_monthly_income)));
+        if (user.average_monthly_income == -1) {
+            averageIncome.setText(Html.fromHtml("<b>საშუალო თვიური შემოსავალი:</b> "));
+        }
+        else {
+            averageIncome.setText(Html.fromHtml("<b>საშუალო თვიური შემოსავალი:</b> " + Integer.toString(user.average_monthly_income)));
+        }
     }
 }

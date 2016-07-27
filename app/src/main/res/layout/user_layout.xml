@@ -27,7 +27,7 @@
                 <TextView android:id="@+id/balance"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="ანგარიში: 100000000000"
+                    android:text="ანგარიში:"
                     android:textSize="@dimen/large_text_size"
                     android:gravity="right"/>
             </android.support.v7.widget.CardView>

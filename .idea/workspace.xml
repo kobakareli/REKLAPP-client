@@ -115,8 +115,8 @@
       <file leaf-file-name="user_layout.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="199" column="37" selection-start-line="199" selection-start-column="37" selection-end-line="199" selection-end-column="37" />
+            <state vertical-scroll-proportion="-6.8">
+              <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -125,10 +125,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6741768">
+            <state vertical-scroll-proportion="0.0">
               <caret line="74" column="36" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
               <folding>
                 <element signature="e#2098#2742#0" expanded="true" />
@@ -144,11 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UserFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="110" column="63" selection-start-line="110" selection-start-column="63" selection-end-line="110" selection-end-column="63" />
+            <state vertical-scroll-proportion="1.2131716">
+              <caret line="181" column="12" selection-start-line="181" selection-start-column="12" selection-end-line="181" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1717,10 +1717,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_playback.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserEditFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/InfoFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/RetroFitServer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/playback_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/sign_up_layout.xml" />
@@ -1729,6 +1727,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java" />
       </list>
     </option>
   </component>
@@ -2218,7 +2218,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2580,7 +2580,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2653,32 +2653,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="199" column="37" selection-start-line="199" selection-start-column="37" selection-end-line="199" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-23/android/widget/TextView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39195403">
           <caret line="209" column="26" selection-start-line="209" selection-start-column="26" selection-end-line="209" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="110" column="63" selection-start-line="110" selection-start-column="63" selection-end-line="110" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2755,7 +2734,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/AppActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6741768">
+        <state vertical-scroll-proportion="0.0">
           <caret line="74" column="36" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
           <folding>
             <element signature="e#2098#2742#0" expanded="true" />
@@ -2766,6 +2745,27 @@
             <element signature="e#3183#3184#0" expanded="true" />
             <element signature="e#3264#3265#0" expanded="true" />
             <element signature="e#3328#3329#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.8">
+          <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/koba/reklappclient/UserFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2131716">
+          <caret line="181" column="12" selection-start-line="181" selection-start-column="12" selection-end-line="181" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
