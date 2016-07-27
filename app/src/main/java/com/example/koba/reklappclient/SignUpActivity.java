@@ -213,12 +213,9 @@ public class SignUpActivity extends AppCompatActivity{
     private boolean isInputValid(String name, String surname, String number, String email, String password, String address, String birthdate, String numChildren,
                                  String income, String city, String gender, String relationship, String id) {
         boolean status = true;
-        if(password.length() < 6 || password.length() > 20) {
-            this.password.setError(getResources().getString(R.string.password_length_error));
-            status = false;
-        }
         if(id.length() != 0 && id.length() != GlobalVariables.ID_LENGTH) {
-            this.id.setError(getResources().getString(R.string.length_error) + GlobalVariables.ID_LENGTH);
+            this.id.setError(getResources().getString(R.string.length_error) + " " + GlobalVariables.ID_LENGTH);
+            this.id.requestFocus();
             status = false;
         }
         if(id.length() != 0) {
@@ -226,24 +223,33 @@ public class SignUpActivity extends AppCompatActivity{
                 char c = id.charAt(i);
                 if (!Character.isDigit(c)) {
                     this.id.setError(getResources().getString(R.string.number_error));
+                    this.id.requestFocus();
                     status = false;
                 }
             }
         }
+        if (email.length() != 0 && !isEmailValid(email)) {
+            this.email.setError(getResources().getString(R.string.format_error));
+            this.email.requestFocus();
+            status = false;
+        }
+        if(password.length() < 6 || password.length() > 20) {
+            this.password.setError(getResources().getString(R.string.password_length_error));
+            this.password.requestFocus();
+            status = false;
+        }
         if(number.length() != GlobalVariables.NUMBER_LENGTH) {
-            this.number.setError(getResources().getString(R.string.length_error) + GlobalVariables.NUMBER_LENGTH);
+            this.number.setError(getResources().getString(R.string.length_error) + " " + GlobalVariables.NUMBER_LENGTH);
+            this.number.requestFocus();
             status = false;
         }
         for(int i = 0; i < number.length(); i++) {
             char c = number.charAt(i);
             if (!Character.isDigit(c)) {
                 this.number.setError(getResources().getString(R.string.number_error));
+                this.number.requestFocus();
                 status = false;
             }
-        }
-        if (email.length() != 0 && !isEmailValid(email)) {
-            this.email.setError(getResources().getString(R.string.format_error));
-            status = false;
         }
         return status;
     }

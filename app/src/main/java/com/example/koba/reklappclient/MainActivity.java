@@ -91,20 +91,23 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean isInputValid(String numberString, String passwordString) {
         boolean status = true;
+        if (passwordString.length() < 6 || passwordString.length() > 20) {
+            this.password.setError(getResources().getString(R.string.password_length_error));
+            this.password.requestFocus();
+            status = false;
+        }
         if (numberString.length() != GlobalVariables.NUMBER_LENGTH) {
-            this.number.setError(getResources().getString(R.string.length_error) + GlobalVariables.NUMBER_LENGTH);
+            this.number.setError(getResources().getString(R.string.length_error) + " " + GlobalVariables.NUMBER_LENGTH);
+            this.number.requestFocus();
             status = false;
         }
         for(int i = 0; i < numberString.length(); i++) {
             char c = numberString.charAt(i);
             if (!Character.isDigit(c)) {
                 this.number.setError(getResources().getString(R.string.number_error));
+                this.number.requestFocus();
                 status = false;
             }
-        }
-        if (passwordString.length() == 0) {
-            this.password.setError(getResources().getString(R.string.empty_field_error));
-            status = false;
         }
         return status;
     }
