@@ -44,6 +44,7 @@ public class AppActivity extends AppCompatActivity {
         setContentView(R.layout.activity_playback);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("ReklApp");
 
         nextDayListener();
 

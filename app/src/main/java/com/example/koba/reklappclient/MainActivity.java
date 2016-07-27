@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("შესვლა");
 
         signup = (TextView) findViewById(R.id.sign_up);
         signup.setOnClickListener(new View.OnClickListener() {
